@@ -1,0 +1,55 @@
+Internet:
+[Road]
+Connectivity
+
+Web:
+[Eatable shops - Pizza shop / Juice shop]
+information sharing
+
+http:
+[govt rules & compliance & regulation]
+protocol used for web communication
+
+ip:
+[GST]
+address of the network device
+192.168.9.1 (ipv4)
+172.24.11.1 (ipv4)
+
+tcp:
+[multiple delivery brought together at destination]
+transmission control protocol
+    - congestion control
+        - speed management
+    - divides into packets
+
+frontend:
+[dining area]
+What you see as the user. Buttons, forms, links,
+webpage, article, text
+HTML, CSS, Javascript
+
+backend:
+[kitchen]
+Hidden from you, you can't see or interact directly.
+Webserver: ExpressJS, Python, Go, Ruby
+Database: MongoDB, MySQL, Redis
+
+DNS:
+[Shop Name -> GST mapping]
+Domain Name Server, responsible to convert website
+name to Ip address
+
+Question:
+
+What happens when you type
+google.com
+in your web browser and hit enter
+
+1. https://google.com is resolved to an IP address via DNS
+2. browser will fire a HTTP request to the webserver on port 80/443
+    - the request goes to the backend
+3. Webserver will give the client the HTTP response
+4. browser will render the webpage (hypertext markup language) 
+    - html to visually appealing information
+    - frontend
