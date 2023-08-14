@@ -1,0 +1,28 @@
+Agenda:
+1. Doubts
+2. Revision
+3. Practice for inline vs block
+    - playing a game
+4. Git setup
+
+==========================
+Block elements
+1. occupy entire line
+2. always start in new line
+3. consecutive block/span elements go to new line
+4. Examples: 
+    - div 
+    - h1 -> h6
+    - p
+5. upon inspection, the CSS shows
+    display: block
+=========================
+Inline elements
+1. they take up the min space
+2. They continue in the same line
+3. consecutive inline elements they remain on the same line
+4. Examples
+    - span
+    - bold (b)
+    - italic (i)
+=========================
