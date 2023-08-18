@@ -49,3 +49,17 @@ nothing is specified
 
 example:
 <img src="camera.jpeg" />
+
+The rendered size will be same as original image size.
+
+Example, if original image is 177 x 118,
+
+then rendered size is also 177 x 118
+
+======= Question =======
+Which case will you use practically?
+Which case will you avoid practically?
+Application oriented question
+
+
+DO NOT SPECIFY BOTH HEIGHT AND WIDTH
