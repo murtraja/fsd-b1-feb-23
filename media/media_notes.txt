@@ -1,0 +1,51 @@
+Rules for determining the rendered size of the image.
+
+Case 1:
+width and height both are specified:
+example:
+<img src="camera.jpeg" width="600" height="400" />
+
+rendered size = 600 x 400
+
+
+Case 2:
+only height is specified
+example: 
+<img src="camera.jpeg" height="400" />
+
+Here the width will be such that the image aspect
+ratio is maintained
+
+example, aspect ratio is 3:2 (width:height)
+height as 400
+
+rwidth/rheight = 3/2
+rwidth/400 = 3/2
+rwidth = 3/2 * (400)
+rwidth = 600
+
+rendered width = aspect_ratio x 400
+
+Case 3:
+only width is specified
+example: 
+<img src="camera.jpeg" width="600" />
+
+Here the height will be such that the image aspect
+ratio is maintained
+
+example, aspect ratio is 3:2 (width:height)
+width as 600
+
+rwidth/rheight = 3/2
+600/rheight = 3/2
+rheight = 600 / (3/2) = 2/3 * 600
+rheight = 400
+
+rendered height = (1/aspect_ratio) x 600
+
+Case 4:
+nothing is specified
+
+example:
+<img src="camera.jpeg" />

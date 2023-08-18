@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio</title>
+  </head>
+  <body>
+    <h1>Using only audio tag</h1>
+    <audio controls src="sampleaudio.mp3"></audio>
+
+    <h1>Using source with audio tag</h1>
+    <audio controls>
+      <source
+        src="https://en.wikipedia.org/wiki/File:Audio_Frequency_tone,_C1,_32.70hz.ogg"
+        type="audio/ogg"
+      />
+      <source src="sampleaudio.mp3" />
+    </audio>
+
+    <h1>Why there are 2 methods of specifying the source?</h1>
+  </body>
+</html>
