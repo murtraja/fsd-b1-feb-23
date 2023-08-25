@@ -14,3 +14,10 @@ https://github.com/murtraja/fsd-b1-feb-23.git
 navigate to the folder in which you want to clone
 
 4. git clone https://github.com/murtraja/fsd-b1-feb-23.git
+
+=========================
+How to update the repo?
+
+1. go to the directory in git bash
+
+2. git pull
