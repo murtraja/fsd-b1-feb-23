@@ -1,0 +1,9 @@
+How to make a link open in an embedded iframe?
+
+1. Add a name attribute to the iframe
+example:
+<iframe src="..." name="myIframe"></iframe>
+
+2. Add the target attribute in the anchor tag as the name of the iframe given in step 1
+
+3. Now if you click on the anchor tag, the link will open in your named iframe
