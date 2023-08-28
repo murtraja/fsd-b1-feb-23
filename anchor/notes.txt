@@ -1,0 +1,5 @@
+How to link to an internal section in the page?
+
+1. The section you want to link, that must have an id (let's call it sid)
+
+2. The link which scrolls to that section, must have the href attribute set to "#sid"
