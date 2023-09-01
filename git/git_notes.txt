@@ -1,5 +1,6 @@
 TODO:
-1. Mock company workflow
+1. Deploy a static web page
+2. Mock company workflow
 
 How to clone the repo?
 

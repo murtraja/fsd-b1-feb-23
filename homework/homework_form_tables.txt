@@ -1,0 +1,9 @@
+1. Try creating the timetable given in table/time_table.png
+    - use colspan and rowspan attributes of the table
+2. Try completing the challenge at https://form-challenges.vercel.app/api/challenge1
+3. Try creating a student marksheet table + form in table/marksheet.png
+    - the result and grade should be inputs
+    - form should be submittable
+    - use some css to align and set color if possible
+4. https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics#how_does_a_table_work
+    - solar system table

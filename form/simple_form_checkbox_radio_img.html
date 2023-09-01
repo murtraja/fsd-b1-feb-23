@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Simple form</title>
+  </head>
+  <body>
+    <h1>This is an employee survey form</h1>
+    <form method="get">
+      <label>Work Preference:</label>
+      <label>Work from home</label>
+      <input name="wfh" type="checkbox" value="workFromHome" />
+      <label>Onsite</label>
+      <input name="onsite" type="checkbox" value="onsite" />
+      <br />
+      <!-- "name=" -->
+      <!-- "How many unique names" -->
+      <fieldset>
+        <legend>Gender</legend>
+        <label>Male</label>
+        <input name="gender" type="radio" value="male" />
+        <label>Female</label>
+        <input name="gender" type="radio" value="female" />
+        <label>Others</label>
+        <input name="gender" type="radio" value="others" />
+      </fieldset>
+
+      <br />
+
+      <br />
+      <input type="submit" value="Enter" />
+    </form>
+  </body>
+</html>

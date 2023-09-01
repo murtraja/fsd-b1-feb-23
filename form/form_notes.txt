@@ -1,2 +1,56 @@
 1. Form Challenge
 2. Practice forms 
+
+Doubts:
+Madhav: 
+    Difference between value vs id vs name 
+    method post and get
+
+http://127.0.0.1:5500/form/simple_form.html
+
+Query string parameters:
+?studentName=someName&studentRollNo=43
+
+name=value
+name=value
+
+Madhav:
+3 data points
+studentName: [FirstName, LastName]
+studentRollNo: 32
+submit: Enter
+
+Other:
+4 data points
+studentName: FirstName
+studentName: LastName
+studentRollNo: 32
+submit: Enter
+
+Both are valid. First one is valid from server's perspective
+Second is valid from browser's perspective
+
+4 data points
+studentFirstName: FirstName
+studentLastName: LastName
+studentRollNo: 32
+submit: Enter
+
+=============
+workpreference=wfh/onsite
+gender=m/f
+===Able to achieve===
+
+=============
+wfh=present/abset
+onsite=present/absent
+gender=m/f
+===Able to achieve===
+
+=============
+wfh=true/false
+onsite=true/false
+male=true/false
+female=true/false
+===NOT Able to achieve===
+Reason: radio needs to have the same name, else it behaves like a checkbox
