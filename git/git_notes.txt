@@ -22,3 +22,39 @@ How to update the repo?
 1. go to the directory in git bash
 
 2. git pull
+
+
+
+
+Collaboration notes:
+git clone
+
+git switch master
+
+git add
+
+git commit
+
+git push
+
+So this will update master branch itself without creating pull request
+
+
+========================
+PR approach
+========================
+git clone
+
+git switch master
+
+git checkout -b my-branch
+
+git add
+
+git commit
+
+git push -u origin my-branch
+
+Then go to github and create a pull request
+
+Choose the base branch as master

@@ -1,0 +1,43 @@
+Different units in CSS and when to use them?
+
+List of units:
+1. pixels (px)
+2. vw
+3. vh
+4. %
+5. rem
+6. em
+7. cm
+8. in
+9. fr (grid later)
+
+avoid using px as much as possible
+    - it fixes the size
+    - difficult to scale / make responsive
+    - border: 1px solid red;
+    - rarely in padding: 16px
+    - rarely in images / media
+
+generally we use rem and em
+    - text related sizes
+        font-size
+    - container sizing
+    - padding
+    - margin
+    - em's size will depend on the parent's font-size
+    - good for scaling and making things responsive
+    - rem: relative to root element
+        so easier to calculate the final value
+    - 1em -> 16px, 1em -> 32px, 1.7 -> ??
+
+for responsiveness use %
+    - if content to appear same irrespective of screen size, then use %
+
+vw, vh
+    - generally used for fixed positioned elements
+    - 2vw => 2 % of the viewport width
+    - 200vw => 2 times the viewport width
+
+in, cm, mm
+    - typesetting and printing media
+    - create a receipt for a payment

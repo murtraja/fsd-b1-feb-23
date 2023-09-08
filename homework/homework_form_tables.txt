@@ -7,3 +7,9 @@
     - use some css to align and set color if possible
 4. https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics#how_does_a_table_work
     - solar system table
+
+
+Group 1:
+Lokesh, Sabir, Dileep
+    - marksheet table
+    - time table
