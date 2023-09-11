@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Is selector</title>
+    <style>
+      /* section h1 {
+        color: green;
+      }
+      article h1 {
+        color: green;
+      }
+      div h1 {
+        color: green;
+      } */
+      /* section h1,
+      article h1,
+      div h1 {
+        color: green;
+      } */
+      :is(section, article, div) h1 {
+        color: green;
+      }
+      main h1 {
+        color: red;
+      }
+      nav h1 {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <section>
+      <h1>Section Header</h1>
+    </section>
+    <article>
+      <h1>Article Header</h1>
+    </article>
+    <div>
+      <h1>Div Header</h1>
+    </div>
+    <main>
+      <h1>Main Header</h1>
+    </main>
+    <nav>
+      <h1>Nav Header</h1>
+    </nav>
+    <h1>Independent Header</h1>
+  </body>
+</html>
