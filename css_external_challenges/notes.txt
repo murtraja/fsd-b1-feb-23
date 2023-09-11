@@ -1,0 +1,28 @@
+======================
+CSS Battle:
+https://cssbattle.dev/battle/1
+
+Given an image, try to come up with some CSS that matches the image in least characters possible
+======================
+
+======================
+Flexbox Froggy:
+https://flexboxfroggy.com/
+
+Try to place the frogs on the leaf assigned to them
+======================
+
+
+======================
+CSS diner:
+https://flukeout.github.io/
+
+CSS selector challenges
+======================
+
+======================
+CSS grid:
+https://codingfantasy.com/games/css-grid-attack
+
+Divide the field into red and green grid cells
+======================
