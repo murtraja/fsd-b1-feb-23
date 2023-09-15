@@ -1,0 +1,6 @@
+Create a keypad as given in expected_output.png file
+Use flexbox
+    flex-direction
+    flex-grow
+    text-align vs justify-content
+    flex children can themselves be flex parents
