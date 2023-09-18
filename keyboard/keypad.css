@@ -1,0 +1,25 @@
+* {
+  box-sizing: border-box;
+}
+.key {
+  height: 30px;
+  width: 30px;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+.row {
+  display: flex;
+  flex-direction: row;
+}
+.col {
+  display: flex;
+  flex-direction: column;
+}
+.grow {
+  flex-grow: 1;
+}

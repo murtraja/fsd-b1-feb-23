@@ -1,0 +1,26 @@
+@media max-width(500px) {
+    color: red
+    >= 500px
+    <= 500px
+}
+@media min-width(500px) {
+    color: blue
+    >= 500px
+    <= 500px
+}
+
+max-width(400px)
+399px rrrr      401px xxxxxxx
+0 - 400px
+
+min-width(700px)
+650xxxx         750rrrr
+700 - inf
+
+max-width(340px) ---> less than = 340
+min-width(340px) ---> greater than = 340
+
+400 -> 700
+@media min-width(400) and max-width(700)
+@media max-width(400) and min-width(700)
+<= 400 and >= 700

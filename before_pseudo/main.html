@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Before</title>
+    <style>
+      div {
+        height: 200px;
+        width: 200px;
+        border: 1px solid blue;
+      }
+      div::before {
+        content: "";
+        width: 200px;
+        height: 200px;
+        border: 1px solid black;
+        background: url("car.jpg");
+        background-position: center;
+        background-size: cover;
+        opacity: 0.3;
+        display: block;
+        position: absolute;
+      }
+      div::before:hover {
+        opacity: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="justify-content-center">Some text here</div>
+  </body>
+</html>

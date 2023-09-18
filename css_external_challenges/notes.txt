@@ -21,7 +21,7 @@ CSS selector challenges
 ======================
 
 ======================
-CSS grid:
+CSS grid (Grid Attack):
 https://codingfantasy.com/games/css-grid-attack
 
 Divide the field into red and green grid cells

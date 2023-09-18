@@ -1,0 +1,57 @@
+body > div {
+  /* border: 1px solid black; */
+  display: grid;
+  grid-template-rows: repeat(8, 50px);
+  grid-template-columns: repeat(8, 50px);
+  row-gap: 0px;
+  column-gap: 0px;
+  width: min-content;
+}
+body > div > div {
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  width: 50px;
+  height: 50px;
+  font-size: 35px;
+  text-align: center;
+}
+body > div > div:nth-last-child(-n + 8) {
+  border-bottom: 1px solid black;
+}
+body > div > div:nth-child(8n) {
+  border-right: 1px solid black;
+}
+body > div > div:nth-child(odd) {
+  /* background-color: wheat; */
+}
+body > div > div:nth-child(even) {
+  /* background-color: grey; */
+}
+body > div > div:nth-child(2n + 9):not(:nth-child(n + 17)) {
+  /* body > div > div:nth-child(2n + 9) { */
+  background-color: green;
+  /* } */
+  /* body > div > div:nth-child(n + 17) { */
+  /* background-color: blue; */
+}
+body > div > div:nth-child(2n + 18):not(:nth-child(n + 25)) {
+  background-color: green;
+}
+body > div > div:nth-child(7n + 5) {
+  /* background-color: wheat; */
+}
+body > div > div:is(:nth-child(9), :nth-child(12)) ~ :nth-of-type(8n) {
+  /* background-color: blue; */
+}
+body > div > div:nth-child(9) ~ :nth-of-type(16n + 1) {
+  /* background-color: blue; */
+}
+body > div > div:nth-child(16n + 1) {
+  /* background-color: green; */
+}
+body > div > div:nth-child(16n + 3) {
+  /* background-color: green; */
+}
+body > div > div:nth-child(16n + 10) {
+  /* background-color: green; */
+}
