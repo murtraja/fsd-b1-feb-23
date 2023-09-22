@@ -1,0 +1,18 @@
+1. Create an animated click toggle switch or a slider as given in the reference image
+2. The slider should be responsive
+3. The width of the slider = width of the container
+4. When changing the size, make sure that the height changes proportionally
+    - example if width is 300, then height is 200
+    - if width is 600, then height is 400
+    - small difference in these values is allowed as long as it is not noticeable
+5. NO JAVASCRIPT
+6. NO MEDIA QUERY
+
+Challenges:
+1. How to remember switch on or off?
+2. How to animate?
+3. How to scale the height with respect to width?
+
+Hints:
+1. Check airbnb.com
+2. w3schools.com also has a toggle slider implementation
