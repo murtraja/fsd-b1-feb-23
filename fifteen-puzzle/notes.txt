@@ -1,0 +1,4 @@
+Part - 1 (Pure HTML + CSS)
+1. Try to figure out how to crop images in web
+2. Use a layout manager which makes the animation easy
+    > Ex. Using flex will make it difficult to move across rows

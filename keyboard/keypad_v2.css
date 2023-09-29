@@ -1,0 +1,31 @@
+.grow {
+  flex-grow: 1;
+}
+.j-c-sb {
+  justify-content: space-between;
+}
+.left-keypad {
+  width: fit-content;
+  outline: 1px solid red;
+}
+.row-stack {
+  display: flex;
+  flex-direction: column;
+}
+.j-c-c {
+  justify-content: center;
+}
+.row-key {
+  display: flex;
+}
+.key {
+  height: 50px;
+  width: 50px;
+  border: 1px solid black;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin: 5px;
+}
