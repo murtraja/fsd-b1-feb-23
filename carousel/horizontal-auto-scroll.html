@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Horizontal scroll</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+      }
+      .parent {
+        width: 500px;
+        height: 400px;
+        border: 2px solid black;
+        background: lightcyan;
+        overflow: scroll;
+        display: flex;
+        scroll-snap-type: x mandatory;
+        /* scroll-behavior: smooth; */
+        position: relative;
+      }
+      .child {
+        width: 200px;
+        height: 150px;
+        border: 2px solid red;
+        font-size: 4rem;
+        background: lightgrey;
+        scroll-snap-align: start;
+      }
+      .child:nth-child(even) {
+        background: lightpink;
+      }
+      .parent:hover .flex-parent {
+        /* left: -700px;
+        top: 0px; */
+        /* transform: translate(-400px) rotate(5deg); */
+        /* background-color: black; */
+      }
+      .flex-parent {
+        display: flex;
+        position: absolute;
+        transition: left 6s;
+        /* transition: transform 6s; */
+        left: 0px;
+        top: 0;
+        animation-name: ticker-animation;
+        animation-duration: 5s;
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
+      }
+      @keyframes ticker-animation {
+        0% {
+          transform: translate(0px);
+        }
+        100% {
+          transform: translate(-1200px);
+        }
+      }
+      /* refresh -> translate will start
+      it will reach at point say 1200
+      now again go back to 0 */
+    </style>
+  </head>
+  <body>
+    <div class="parent" id="myParent">
+      <div class="flex-parent">
+        <div class="child">Child 1</div>
+        <div class="child">Child 2</div>
+        <div class="child">Child 3</div>
+        <div class="child">Child</div>
+        <div class="child">Child</div>
+        <div class="child">End</div>
+        <div class="child">Child 1</div>
+        <div class="child">Child 2</div>
+        <div class="child">Child 3</div>
+      </div>
+    </div>
+  </body>
+</html>

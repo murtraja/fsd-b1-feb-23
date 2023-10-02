@@ -1,0 +1,21 @@
+* {
+  box-sizing: border-box;
+}
+.parent {
+  width: 800px;
+  height: 400px;
+  border: 2px solid black;
+  overflow: scroll;
+  scroll-snap-type: x mandatory;
+  display: flex;
+}
+.child {
+  width: 300px;
+  height: 150px;
+  border: 2px solid red;
+  font-size: 2rem;
+  flex-shrink: 0;
+  justify-content: space-between;
+  scroll-snap-align: start;
+  display: inline-block;
+}
