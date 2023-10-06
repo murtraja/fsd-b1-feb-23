@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Puzzle</title>
+    <style>
+      div.frame {
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        outline: 1px solid black;
+        height: 400px;
+        width: 400px;
+        background-color: lightgray;
+      }
+      .piece {
+        height: 100px;
+        width: 100px;
+        object-fit: none;
+        margin: 0px;
+        outline: 1px solid black;
+        background-color: gray;
+        position: absolute;
+        right: 0%;
+        bottom: 0%;
+        transition: all 1s ease-in-out;
+      }
+      #p1 {
+        object-position: 0px 0px;
+        top: 0%;
+        left: 0%;
+      }
+      #p2 {
+        object-position: -100px 0px;
+        top: 0%;
+        left: 25%;
+      }
+      #p3 {
+        object-position: -200px 0px;
+        top: 0%;
+        left: 50%;
+      }
+      #p4 {
+        object-position: -300px 0px;
+        top: 0%;
+        left: 75%;
+      }
+      #p5 {
+        object-position: 0px -100px;
+        top: 25%;
+        left: 0%;
+      }
+      #p6 {
+        object-position: -100px -100px;
+        top: 25%;
+        left: 25%;
+      }
+      #p7 {
+        object-position: -200px -100px;
+        top: 25%;
+        left: 50%;
+      }
+      #p8 {
+        object-position: -300px -100px;
+        top: 25%;
+        left: 75%;
+      }
+      #p9 {
+        object-position: 0px -200px;
+        top: 50%;
+        left: 0%;
+      }
+      #p10 {
+        object-position: -100px -200px;
+        top: 50%;
+        left: 25%;
+      }
+      #p11 {
+        object-position: -200px -200px;
+        top: 50%;
+        left: 50%;
+      }
+      #p12 {
+        object-position: -300px -200px;
+        top: 50%;
+        left: 75%;
+      }
+      #p12:hover {
+        top: 75%;
+      }
+      #p13 {
+        object-position: 0px -300px;
+        top: 75%;
+        left: 0%;
+      }
+      #p14 {
+        object-position: -100px -300px;
+        top: 75%;
+        left: 25%;
+      }
+      #p15 {
+        object-position: -200px -300px;
+        top: 75%;
+        left: 50%;
+      }
+      #p15:hover {
+        left: 75%;
+      }
+      #p16 {
+        object-position: -300px -300px;
+      }
+      .line-parent {
+        display: flex;
+      }
+      .line {
+        width: calc(0.33 * 400px);
+        height: 10px;
+        background-color: red;
+        outline: 1px solid black;
+      }
+      .piece:hover {
+        transform: rotate(10deg);
+        box-shadow: 0 0 10px 1px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="frame">
+      <img class="piece" id="p1" src="image.jpeg" />
+      <img class="piece" id="p2" src="image.jpeg" />
+      <img class="piece" id="p3" src="image.jpeg" />
+      <img class="piece" id="p4" src="image.jpeg" />
+      <img class="piece" id="p5" src="image.jpeg" />
+      <img class="piece" id="p6" src="image.jpeg" />
+      <img class="piece" id="p7" src="image.jpeg" />
+      <img class="piece" id="p8" src="image.jpeg" />
+      <img class="piece" id="p9" src="image.jpeg" />
+      <img class="piece" id="p10" src="image.jpeg" />
+      <img class="piece" id="p11" src="image.jpeg" />
+      <img class="piece" id="p12" src="image.jpeg" />
+      <img class="piece" id="p13" src="image.jpeg" />
+      <img class="piece" id="p14" src="image.jpeg" />
+      <img class="piece" id="p15" src="image.jpeg" />
+      <!-- <div class="piece" id="p16"></div> -->
+    </div>
+  </body>
+</html>
