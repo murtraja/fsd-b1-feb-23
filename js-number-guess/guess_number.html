@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess Number</title>
+  </head>
+  <body>
+    <!-- 
+        What is Javascript?
+        It is a programming language used for web development
+
+        Where is Javascript used?
+        1. Browsers - Front end development
+            - making websites
+        2. Backend - Node server / any web server
+        3. Desktop applications - electronjs
+        4. Mobile development - React Native, NativeScript
+
+        // Flow for the game
+        1. Computer generates / stores the secret number
+            a. Number is between 1 and 10
+        2. Computer asks the user to guess the number
+        3. User enters the number and computer stores it in variable - guessedNumber
+        4. Computer matches the entered number with the stored secret number
+        5. If matches - show alert: User wins
+        6. If doesn't match - show alert: User loses.
+
+     -->
+    <script>
+      const secretNo = 7;
+
+      const guessNo = prompt("Please guess a number between 1 and 10");
+
+      // if conditions
+      if (guessNo == secretNo) {
+        console.log("condition is true");
+        alert("You won");
+      } else {
+        console.log("condition is false");
+        alert("You lost");
+      }
+
+      //using ternary operator
+      //   guessNo == secretNo ? alert("win") : alert("loss");
+    </script>
+  </body>
+</html>
