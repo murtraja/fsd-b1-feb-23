@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find missing</title>
+  </head>
+  <body>
+    <script>
+      /*
+             *
+             * 1,2,3,4,5
+             * 3
+             * 1,2,4,5 <- removing 3
+             * 1,4,2,5 <- shuffling
+             *
+             * Lokesh's methods
+             * 1.
+             * Mathematical way
+             * sum of series = n * (n+1) / 2 = 1 + 2 + ... + n
+             *
+             * You take the sum of series:
+             * l, l+1, l+2, ...., u
+             *
+             * where l = lower bound
+             * u = upper bound
+             *
+             * So for example, if l = 1, u = 4
+             *
+             * expected = 1 + 2 + 3 + 4
+             *
+             * Now take the sum of the actual array
+             * {1,4,3}
+             * actual = 1 + 4 + 3
+             *
+             * Now diff = expected - actual = missing no
+             *
+             * expected = 1 + 2 + 3 + 4 = 10
+             * actual = 1 + 4 + 3 = 8
+             * missing no = expected - actual = 10 - 8 = 2
+             *
+             * 2.
+             * count sort
+             * create buckets
+             * Place every element in its own bucket
+
+
+
+             /*
+      1004, 1000, 1003, 1001
+      upperBound = 1004
+      lowerBound = 1000
+      Find 1002
+
+      Approach 1:
+      1. Take sum of all given nos: (actualSum)
+            example: actualSum = 1004 + 1000 + 1003 + 1001 = 4008
+      2. Take sum of this series: lb, lb + 1, lb + 2, ..., u (expectedSum)
+          example: 1000, 1001, 1002, 1003, 1004
+      3. Get the difference: expectedSum - actualSum = missing number
+          example: expectedSum = 1000 + 1001 + 1002 + 1003 + 1004 = 5010
+                  actualSum = 1004 + 1000 + 1003 + 1001 = 4008
+                  difference = missingNum = 5010 - 4008 = 1002
+
+      Approach 2:
+      1. Find total numbers in the series: lb, lb+1, lb+2, ..., u
+          formula = ub - lb + 1
+          example: 1000, 1001, 1002, 1003, 1004
+                  count = 5
+      2. Create an array having 5 as the size, this will be our buckets
+      3. Initialize the buckets with null
+          example: [null, null, null, null, null]
+      4. Iterate over the given numbers
+          4a: find the corresponding index of the given number's bucket
+              index = given number - lb
+              example: 1000: index = 1000 - 1000 = 0
+                      1001: index = 1001 - 1000 = 1
+          4b. fill the corresponding bucket
+              example: [1000, 1001, null, 1003, 1004]
+      5. Iterate over the buckets, find the null value
+          missing value = bucket index + lowerBound
+          example: bucket index = 2
+                  lowerBound = 1000
+                  missing value = 1000 + 2 = 1002
+      */
+      function findMissingNumber_Approach1(
+        arrayOfIntegers,
+        upperBound,
+        lowerBound
+      ) {
+        let actualSum = 0;
+        for (let i = 0; i < arrayOfIntegers.length; i++) {
+          //   console.log(i);
+          //   console.log(arrayOfIntegers[i]);
+          actualSum += arrayOfIntegers[i];
+        }
+        // console.log("actualSum", actualSum);
+
+        let expectedSum = 0;
+        for (let i = lowerBound; i <= upperBound; i++) {
+          //   console.log(i);
+          expectedSum += i;
+        }
+        // console.log("expectedSum", expectedSum);
+
+        const missingNumber = expectedSum - actualSum;
+        // console.log("missing number", missingNumber);
+        return missingNumber;
+      }
+
+      function findMissingNumber(arrayOfIntegers, upperBound, lowerBound) {
+        const totalExpectedNumbers = upperBound - lowerBound + 1;
+        const buckets = [];
+        for (let i = 0; i < totalExpectedNumbers; i++) {
+          buckets.push(null);
+        }
+        // console.log(buckets);
+
+        for (let i = 0; i < arrayOfIntegers.length; i++) {
+          const element = arrayOfIntegers[i];
+          //   console.log(element);
+          const index = element - lowerBound;
+          buckets[index] = element;
+        }
+        // console.log(buckets);
+
+        for (let i = 0; i < buckets.length; i++) {
+          if (buckets[i] === null) {
+            const missingElement = lowerBound + i;
+            console.log(missingElement);
+            return;
+          }
+        }
+        console.error("ERROR: Missing element not found");
+      }
+
+      const result = findMissingNumber([1004, 1000, 1003, 1001], 1004, 1000);
+      console.log(result);
+    </script>
+  </body>
+</html>
