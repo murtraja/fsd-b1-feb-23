@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sum of products of digits</title>
+    <script>
+      /*
+            You have 2 numbers say n1: 6, n2:34
+
+            You need to multiply corresponding digits and add them
+
+                        6
+            3           4
+            (3*0)   +   (6*4)
+            0       +   24
+
+            n1: 123
+            n2: 45
+            1           2           3
+                        4           5
+            (1*0)   +   (2*4)   +   (3*5)
+            0       +   8       +   15
+            23
+
+            n1: 123
+            n2: 45
+
+            Approach 1:
+            (Keep on getting last digits of the numbers, update sum, stop if any number reaches 0)
+            Iteration 1:
+            n1%10 = 3
+            n2%10 = 5
+            3*5 add it to sum
+            n1 -> n1/10 = 12
+            n2 -> n2/10 = 4
+
+            Iteration 2:
+            n1%10 = 2
+            n2%10 = 4
+            2*4 add it to sum
+            n1 -> n1/10 = 1
+            n2 -> n2/10 = 0
+
+            Iteration 3:
+            WILL NOT HAPPEN
+            condition is: while(n1 > 0 && n2 > 0) 0 > 0 false (for n2)
+
+            n1:           123
+            n2:     123456789
+
+
+            Approach 2:
+            (convert both numbers to string. Get last same length substring. Iterate char by char, multiply, add to sum)
+
+            n1:           123
+            n2:     123456789
+
+            n1: "123456789"
+            n2: "123"
+            diff = Math.abs(n1.length - n2.length)
+
+            s1 = n1.substr(n1.length-diff) = "123"
+            s2 = n2.substr(diff) = "789"
+
+            Now iterate over them char by char, multiply and add
+            '1'*'7' + '2'*'8' + '3'*'9'
+            Before multiplying convert back to integer
+
+            Approach 3:
+            n1: "123456789"
+            n2: "123"
+            min = Math.min(n1.length, n2.length)
+
+            s1 = n1.substr(n1.length-min) = "123"
+            s2 = n2.substr(n2.length-min) = "789"
+
+            Now iterate over them char by char, multiply and add
+            '1'*'7' + '2'*'8' + '3'*'9'
+            Before multiplying convert back to integer
+
+            Approach 4:
+            n1: "123456789"
+            n2: "123"
+
+            n1: "987654321"
+            n2: "321"
+            min = 3
+            n1[0]*n2[0] + n1[1]*n2[1] + n1[2]*n2[2]
+
+
+        */
+      function sumOfProductOfDigits(n1, n2) {
+        // Your code here
+      }
+    </script>
+  </head>
+  <body></body>
+</html>
