@@ -18,22 +18,15 @@ Round function
     true: successful round
     false: unsuccessful round
 */
-
-function playRound(roundNo, totalRounds, secretNo) {
+const playRound = function playRound(roundNo, totalRounds, secretNo) {
   const tryString = `(Try ${roundNo} of ${totalRounds})`;
   const tryString2 = "(Try " + roundNo + " of " + totalRounds + ")";
   const guessNo = parseInt(
     prompt(`Please guess a number between 1 and 10 ${tryString}`)
   );
 
-  // if (guessNo === secretNo) {
-  //   return true;
-  // } else {
-  //   return false;
-  // }
   return guessNo === secretNo;
-}
-
+};
 const secretNo = 7;
 
 const totalRounds = 3;
