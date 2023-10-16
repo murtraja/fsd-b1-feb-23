@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      //   function calculate(n1, n2, operator) {
+      //     const operations = {
+      //       "+": function add(n1, n2) {
+      //         return n1 + n2;
+      //       },
+      //       "-": function minus(n1, n2) {
+      //         return n1 - n2;
+      //       },
+      //       "/": function divide(n1, n2) {
+      //         return n1 / n2;
+      //       },
+      //       "*": function multiply(n1, n2) {
+      //         return n1 * n2;
+      //       },
+      //     };
+      //     return operations[operator](n1, n2);
+      //   }
+      //   console.log(calculate(2, 3, "*"));
+      //   console.log(calculate(2, 3, "/"));
+      //   console.log(calculate(2, 3, "+"));
+      //   console.log(calculate(2, 3, "-"));
+
+      const operations = {
+        "+": function add(n1, n2) {
+          return n1 + n2;
+        },
+        "-": function minus(n1, n2) {
+          return n1 - n2;
+        },
+        "/": function divide(n1, n2) {
+          return n1 / n2;
+        },
+        "*": function multiply(n1, n2) {
+          return n1 * n2;
+        },
+      };
+      function calculate(n1, n2, operation) {
+        return operation(n1, n2);
+      }
+      console.log(calculate(2, 3, operations["*"]));
+      console.log(calculate(2, 3, operations["/"]));
+      console.log(calculate(2, 3, operations["+"]));
+      console.log(calculate(2, 3, operations["-"]));
+    </script>
+  </head>
+  <body></body>
+</html>
