@@ -1,0 +1,21 @@
+Object      [FATEMA] - [5 mins]
+    -> declaration
+    -> keys / values
+    -> iteration
+var vs let vs const scoping [LOKESH] - [8 mins]
+    -> definition of var, let , const
+    -> similarity between let and const
+    -> similarity between var and let
+    -> examples
+DOM APIs
+    -> getElementById           [SHEKHAR]   -   [5 mins]
+    -> getElementsByClassName   [SHEKHAR]
+    -> getElementsByTagName     [MADHAV]    -   [5 mins]
+    -> classList                [MADHAV]
+    -> createElement            [TIRTHARAJ] -   [10 mins]
+    -> appendChild and friends  [TIRTHARAJ]
+    -> querySelector and friends    [ANURAG]    - [5 mins]
+    -> content                      [LAKSHMUNAIDU][7 mins]
+        > innerText, textContent, innerHTML
+    -> reading and changing attributes  [CHETAN]- [7 mins]
+    -> reading and changing styles      [CHETAN]

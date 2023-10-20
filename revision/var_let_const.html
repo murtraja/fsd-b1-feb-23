@@ -1,0 +1,28 @@
+<script>
+  // var is function scope (not global)
+
+  //   function xyz() {
+  //     var xyzVariable = "hello";
+  //   }
+  //   xyz();
+  //   console.log(xyzVariable);
+
+  // GLOBAL
+  //   function xyz() {
+  //     window.xyzVariable = "hello";
+  //   }
+  //   xyz();
+  //   console.log(xyzVariable);
+
+  //block scope
+
+  {
+    var myBlockVariable = "nice";
+  }
+  console.log(myBlockVariable); // prints nice
+
+  {
+    let myLetBlockVariable = "let";
+  }
+  console.log(myLetBlockVariable); // prints error
+</script>
