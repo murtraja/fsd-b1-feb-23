@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Guess Number</title>
+  </head>
+  <style>
+    li:first-child {
+      color: red;
+    }
+  </style>
+  <body>
+    <input type="number" id="inputGuess" />
+    <input type="button" id="buttonGuess" value="Guess" />
+    <ul id="alerts"></ul>
+    <script src="guess_number_v4.js"></script>
+
+    <!-- 
+      Features to be added:
+        1. Take the input from <input/> instead of prompt
+          -> onclick, getElementById
+        2. New game, another try, track score / wins
+          -> DOM manipulation
+          -> Complex calculation
+          -> Dynamic table creation
+        3. User can select difficulty level before game begins
+     -->
+  </body>
+</html>
