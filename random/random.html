@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // Math.random() gives a number between 0 and 1
+      // 0 is inclusive, 1 is exclusive
+      // mathematical notation [0, 1)
+      // 0, 0.1, 0.2, 0.3, ... 0.999999
+
+      const numBetween0and1 = Math.random();
+      console.log(numBetween0and1, "0 <= x < 1");
+
+      // How to generate a number between 1 and 2
+      const numBetween1and2 = numBetween0and1 + 1;
+      console.log(numBetween1and2, "1 <= x < 2");
+
+      // How to generate a number between 1345 and 1346
+      const numBetween1345and1346 = numBetween0and1 + 1345;
+      console.log(numBetween1345and1346, "[1345, 1346)");
+
+      // How to generate a number between 0 and 5
+      const numBetween0and5 = numBetween0and1 * 5;
+      console.log(numBetween0and5, "[0, 5)");
+
+      // what is the lowest number generated : 0
+      // what is the highest number generated: 1 ish
+      // what is the highest number expected? 5, 1*5 = 5
+      // what is the lowest number expected? 0, 0*5 = 0
+      // Math.random()*5
+
+      // How to generate a number between 1 and 6
+      //   const numBetween1and6 = (numBetween0and1 + 1) * 3;
+      //   console.log(numBetween1and6, "[1, 6)");
+
+      // 0, 1
+      // +1 => 1, 2
+      // *3 => 3, 6
+
+      // How to generate a number between 1 and 6
+      const numBetween1and6 = numBetween0and1 * 5 + 1;
+      console.log(numBetween1and6, "[1, 6)");
+
+      // ASIDE
+      // Floor -> look towards left
+      // Ceil -> look towards right
+
+      // How to generate a random number between lo and hi
+      const lo = 3;
+      const hi = 10;
+      const numberBetweenLoAndHi = lo + Math.random() * (hi - lo);
+      console.log(numberBetweenLoAndHi, `[${lo}, ${hi})`);
+      console.log(Math.floor(numberBetweenLoAndHi), `[${lo}, ${hi}) e I`);
+      console.log(Math.ceil(numberBetweenLoAndHi), `[${lo}, ${hi}] e I`);
+
+      // write a function in javascript, that takes lo and hi as inputs
+      // and returns a random integer between lo and hi (both inclusive)
+      // name of the func: getRandomNumberBetween(lo, hi)
+      function getRandomNumberBetween(low, high) {
+        low = low - 1;
+        number = Math.ceil(low + Math.random() * (high - low));
+        return number;
+      }
+
+      // using floor instead of ceiling
+      function getRandomNumBetweenUsingFloor(lo, hi) {
+        const num = Math.floor(lo + Math.random() * (hi - lo + 1));
+
+        return num;
+      }
+    </script>
+  </body>
+</html>
