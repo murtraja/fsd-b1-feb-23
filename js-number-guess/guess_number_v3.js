@@ -2,8 +2,9 @@
     Features:
     1. Using a random number generator now
     2. Giving helpful message, whether guess is lower or higher than the secret
-    3. Checking if user entered an invalid response like "12fsd" (NaN)
+    3. Checking if user entered an invalid response like "12fsd" (NaN) / -3 / 9999
         -> if invalid, display invalid number entered
+    4. Added a difficulty setting object
 */
 const easySettings = {
   range: 10,
