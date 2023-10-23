@@ -5,17 +5,34 @@
     3. Checking if user entered an invalid response like "12fsd" (NaN)
         -> if invalid, display invalid number entered
 */
+const easySettings = {
+  range: 10,
+  rounds: 3,
+};
+const mediumSettings = {
+  range: 20,
+  rounds: 2,
+};
+const hardSettings = {
+  range: 30,
+  rounds: 1,
+};
+
+const appliedSettings = easySettings;
+
 const playRound = function playRound(roundNo, totalRounds, secretNo) {
   const tryString = `(Try ${roundNo} of ${totalRounds})`;
   const guessNo = Number(
-    prompt(`Please guess a number between 1 and 10 ${tryString}`)
+    prompt(
+      `Please guess a number between 1 and ${appliedSettings.range} ${tryString}`
+    )
   );
 
   return guessNo;
 };
-const secretNo = getRandomNumBetween(1, 10);
+const secretNo = getRandomNumBetween(1, appliedSettings.range);
 console.log("generated secret no: ", secretNo);
-const totalRounds = 3;
+const totalRounds = appliedSettings.rounds;
 let userWon = false;
 
 for (let round = 1; round <= totalRounds; round++) {
@@ -28,7 +45,7 @@ for (let round = 1; round <= totalRounds; round++) {
     break;
   }
   if (round != totalRounds) {
-    if (isNaN(result)) {
+    if (isNaN(result) || result < 1 || result > appliedSettings.range) {
       alert("Try again. You entered an invalid number");
     } else {
       const higherOrLower = result > secretNo ? "higher" : "lower";
