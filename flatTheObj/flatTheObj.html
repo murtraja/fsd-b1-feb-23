@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let user = {
+        name: "Karan",
+        address: {
+          personal: "Delhi",
+          area: "CivilLines",
+        },
+        office: {
+          state: "Mumbai",
+          area: {
+            landmark: "Bandra",
+          },
+        },
+      };
+      let parent = "user";
+      let resultObj = {};
+      function flatTheObj(obj, parent) {
+        // Write your code here
+        obj = { name: "murtaza", age: 10 };
+        parent = "student";
+
+        res = { student_name: "murtaza", student_age: 10 };
+
+        obj = {
+          name: "murtaza",
+          age: 10,
+          marks: {
+            phy: 10,
+            chem: 20,
+            bio: 30,
+          },
+        };
+        res = { student_name: "murtaza", student_age: 10, student_marks: "??" };
+
+        obj = { phy: 10, chem: 20, bio: 30 };
+        parent = "marks";
+        res = { marks_phy: 10, marks_chem: 20, marks_bio: 30 };
+
+        obj = {
+          name: "murtaza",
+          age: 10,
+          marks_phy: 10,
+          marks_chem: 20,
+          marks_bio: 30,
+        };
+
+        res = {
+          student_name: "murtaza",
+          student_age: 10,
+          student_marks_phy: 10,
+          student_marks_chem: 20,
+          student_marks_bio: 30,
+        };
+      }
+
+      /*
+        1. Iterate over the properties of the object (obj)
+        2a. property is a value (No nesting)
+            i) convert {property: value} to {parent_property: value}
+        2b. property is a nested object
+            i) call flatTheObj(obj.property, "property")
+    */
+
+      // How to iterate over object propeties?
+      //   for (const property in user) {
+      //     console.log(property);
+      //   }
+
+      // How to figure out if the value is object or non-object
+      //   for (const property in user) {
+      //     const isObject = typeof user[property] === "object";
+      //     console.log(`${property} is an object: ${isObject}`);
+      //   }
+
+      // How to convert {property: value} to {parent_property: value}
+      const o1 = { property: "value" };
+      const o2 = {};
+
+      //   console.log(o2);
+      // {parent_property: "value"}
+
+      // How to convert {property: value} to {parent_property: value}
+      const o3 = { property1: "value1", property2: "value2" };
+      const o4 = {};
+
+      //   console.log(o4);
+      // { parent_property1: "value1", parent_property2: "value2" };
+      //   for (const key in o3) {
+      //     const new_key = "parent_" + key;
+      //     console.log(new_key);
+      //     const new_value = o3[key];
+      //     console.log(`${new_key} => ${new_value}`);
+      //     o4[new_key] = new_value;
+      //   }
+
+      // How to update the object from:
+
+      obj = { name: "murtaza", age: 10 };
+
+      marks = {
+        marks_phy: 10,
+        marks_chem: 20,
+        marks_bio: 30,
+      };
+
+      //to
+
+      res = {
+        name: "murtaza",
+        age: 10,
+        marks_phy: 10,
+        marks_chem: 20,
+        marks_bio: 30,
+      };
+
+      console.log({ ...obj, ...marks });
+      // method 1 -> spread operator
+
+      //method 2 -> Object.assign (in-place)
+      Object.assign(obj, marks);
+      // obj => concatenated
+
+      // method 3 -> Object.assign (new object)
+      res = Object.assign({}, obj, marks);
+    </script>
+  </body>
+</html>
