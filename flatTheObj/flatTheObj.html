@@ -21,7 +21,7 @@
         },
       };
       let parent = "user";
-      let resultObj = {};
+      //   let resultObj = {};
       function flatTheObj(obj, parent) {
         // Write your code here
         obj = { name: "murtaza", age: 10 };
@@ -121,7 +121,7 @@
         marks_bio: 30,
       };
 
-      console.log({ ...obj, ...marks });
+      //   console.log({ ...obj, ...marks });
       // method 1 -> spread operator
 
       //method 2 -> Object.assign (in-place)
@@ -130,6 +130,28 @@
 
       // method 3 -> Object.assign (new object)
       res = Object.assign({}, obj, marks);
+
+      let resultObj = {};
+      function flatTheObj(obj, parent) {
+        // Write your code here
+        /*
+        1. Iterate over the properties of the object (obj)
+        2a. property is a value (No nesting)
+            i) convert {property: value} to {parent_property: value}
+        2b. property is a nested object
+            i) call flatTheObj(obj.property, "property")
+    */
+        for (const key in obj) {
+          const isObject = typeof obj[key] === "object";
+          const new_key = `${parent}_${key}`;
+          if (!isObject) {
+            resultObj[new_key] = obj[key];
+          } else {
+            flatTheObj(obj[key], new_key);
+          }
+        }
+        return resultObj;
+      }
     </script>
   </body>
 </html>

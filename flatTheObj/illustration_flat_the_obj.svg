@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (3bf5ae0d25, 2021-09-20)"
+   sodipodi:docname="illustration_flat_the_obj.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     inkscape:zoom="0.73228114"
+     inkscape:cx="-2288.7384"
+     inkscape:cy="-353.00649"
+     inkscape:window-width="960"
+     inkscape:window-height="1016"
+     inkscape:window-x="960"
+     inkscape:window-y="27"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="opacity:0.556326;fill:none;fill-opacity:0.999976;stroke:#000000;stroke-width:0.820159;stroke-linecap:round;stroke-linejoin:round"
+       id="rect890"
+       width="157.28763"
+       height="212.38925"
+       x="-682.4231"
+       y="-212.74503" />
+    <rect
+       style="opacity:0.556326;fill:none;fill-opacity:0.999976;stroke:#000000;stroke-width:0.596961;stroke-linecap:round;stroke-linejoin:round"
+       id="rect890-3"
+       width="125.45917"
+       height="141.06544"
+       x="-650.59467"
+       y="-141.42122" />
+    <rect
+       style="opacity:0.556326;fill:none;fill-opacity:0.999976;stroke:#000000;stroke-width:0.449827;stroke-linecap:round;stroke-linejoin:round"
+       id="rect890-3-9"
+       width="107.0462"
+       height="93.875244"
+       x="-632.1817"
+       y="-94.231018" />
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.264583"
+       x="-677.08551"
+       y="-199.35654"
+       id="text2654"><tspan
+         sodipodi:role="line"
+         id="tspan2652"
+         style="stroke-width:0.264583"
+         x="-677.08551"
+         y="-199.35654">flatTheObj(levels, 'levels')</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.345px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.158626"
+       x="-649.18591"
+       y="-133.63005"
+       id="text2654-6"><tspan
+         sodipodi:role="line"
+         id="tspan2652-7"
+         style="stroke-width:0.158626"
+         x="-649.18591"
+         y="-133.63005">flatTheObj({l2:{l3:value}}, 'levels_l1')</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.71191px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.117799"
+       x="-629.79492"
+       y="-87.968864"
+       id="text2654-6-1"><tspan
+         sodipodi:role="line"
+         id="tspan2652-7-2"
+         style="stroke-width:0.117799"
+         x="-629.79492"
+         y="-87.968864">flatTheObj({l3:value}, 'levels_l1_l2')</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.264583"
+       x="-682.1795"
+       y="-224.72629"
+       id="text4542"><tspan
+         sodipodi:role="line"
+         id="tspan4540"
+         style="stroke-width:0.264583"
+         x="-682.1795"
+         y="-224.72629">levels = {l1:{l2:{l3:&quot;value&quot;}}}</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.264583"
+       x="-668.56763"
+       y="-179.48488"
+       id="text9026"><tspan
+         sodipodi:role="line"
+         id="tspan9024"
+         style="stroke-width:0.264583"
+         x="-668.56763"
+         y="-179.48488">key: l1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10.5833px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.264583"
+       x="-652.47101"
+       y="-166.16171"
+       id="text13668"><tspan
+         sodipodi:role="line"
+         id="tspan13666"
+         style="stroke-width:0.264583"
+         x="-652.47101"
+         y="-166.16171">isObject = true</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.264583"
+         x="-652.47101"
+         y="-152.93259"
+         id="tspan13670">new_key = levels_l1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.81974px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.170494"
+       x="-647.84869"
+       y="-124.00161"
+       id="text9026-5"><tspan
+         sodipodi:role="line"
+         id="tspan9024-3"
+         style="stroke-width:0.170494"
+         x="-647.84869"
+         y="-124.00161">key: l2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.049px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.126225"
+       x="-627.45386"
+       y="-80.08667"
+       id="text9026-5-7"><tspan
+         sodipodi:role="line"
+         id="tspan9024-3-0"
+         style="stroke-width:0.126225"
+         x="-627.45386"
+         y="-80.08667">key: l3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:6.81974px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.170494"
+       x="-637.47626"
+       y="-115.41634"
+       id="text13668-5"><tspan
+         sodipodi:role="line"
+         id="tspan13666-6"
+         style="stroke-width:0.170494"
+         x="-637.47626"
+         y="-115.41634">isObject = true</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.170494"
+         x="-637.47626"
+         y="-106.89167"
+         id="tspan13670-2">new_key = levels_l1_l2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:5.049px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.126225"
+       x="-624.57202"
+       y="-72.059235"
+       id="text13668-5-9"><tspan
+         sodipodi:role="line"
+         id="tspan13666-6-3"
+         style="stroke-width:0.126225"
+         x="-624.57202"
+         y="-72.059235">isObject = false</tspan><tspan
+         sodipodi:role="line"
+         style="stroke-width:0.126225"
+         x="-624.57202"
+         y="-65.747978"
+         id="tspan13670-2-6">new_key = levels_l1_l2_l3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:4.38404px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;stroke-width:0.109601"
+       x="-627.6936"
+       y="-56.809216"
+       id="text32252"><tspan
+         sodipodi:role="line"
+         id="tspan32250"
+         style="stroke-width:0.109601"
+         x="-627.6936"
+         y="-56.809216">result_obj = {levels_l1_l2_l3: &quot;value&quot;}</tspan></text>
+  </g>
+</svg>
