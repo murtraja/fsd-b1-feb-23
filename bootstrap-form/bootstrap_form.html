@@ -1,0 +1,105 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl"
+  crossorigin="anonymous"
+/>
+
+<!-- Write your code here -->
+
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+  crossorigin="anonymous"
+></script>
+<div class="container">
+  <h2 class="text-center">Newton Forms</h2>
+  <form>
+    <div class="form-floating mb-3">
+      <input
+        type="text"
+        class="form-control"
+        id="username-input"
+        placeholder="Username"
+      />
+      <label for="floatingInput">Username</label>
+    </div>
+    <div class="input-group mb-3">
+      <input
+        placeholder="Email Handler"
+        id="email-handler-input"
+        type="text"
+        class="form-control"
+        placeholder="Username"
+        aria-label="Username"
+      />
+      <span class="input-group-text">@</span>
+      <input
+        placeholder="Server"
+        id="server-input"
+        type="text"
+        class="form-control"
+        placeholder="Server"
+        aria-label="Server"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        placeholder="Password..."
+        type="password"
+        class="form-control"
+        id="exampleInputPassword1"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="college-input" class="form-label"
+        >Select you college name.</label
+      >
+      <input
+        class="form-control"
+        list="datalistOptions"
+        id="college-input"
+        placeholder="Type to search..."
+      />
+      <datalist id="collge-options">
+        <option value="NIT"></option>
+        <option value="BITS"></option>
+        <option value="IIT"></option>
+        <option value="IIIT"></option>
+        <option value="IIM"></option>
+      </datalist>
+    </div>
+    <div class="mb-3 form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        id="flexSwitchCheckDefault"
+      />
+      <label class="form-check-label" for="flexSwitchCheckDefault"
+        >Accept all terms and conditions.</label
+      >
+    </div>
+    <div class="mb-3 progress">
+      <div
+        class="progress-bar"
+        role="progressbar"
+        aria-valuenow="0"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
+    </div>
+    <div class="row">
+      <div class="col text-center">
+        <button
+          id="submit-button"
+          disabled
+          type="submit"
+          class="btn btn-primary"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
