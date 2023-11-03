@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      const data = [
+        { name: "Ram", scores: [80, 95, 60] },
+        { name: "Mohan", scores: [85, 70, 90] },
+        { name: "Sai", scores: [60, 70, 80] },
+        { name: "Hemang", scores: [95, 90, 94] },
+      ];
+
+      // Step 1: Using reduce to calculate the average
+      const ram = data[0];
+      // Average = (Sum of values) / (Count)
+      const ramAverage =
+        ram.scores.reduce((res, n) => res + n) / ram.scores.length;
+
+      // Step 2: Adding average key
+      //   const data2 = [
+      //     { name: "Ram", scores: [80, 95, 60], average: 80.4 },
+      //     { name: "Mohan", scores: [85, 70, 90], average: 80.4 },
+      //     { name: "Sai", scores: [60, 70, 80], average: 80.4 },
+      //     { name: "Hemang", scores: [95, 90, 94], average: 80.4 },
+      //   ];
+      const data2 = data.map((student) => {
+        // const newStudent = { ...student, average: 80.4 };
+        const newStudent = { name: student.name, average: 80.4 };
+        return newStudent;
+      });
+
+      //Step 3:
+      // calculate the correct average using step 1 and step 2
+      const data3 = data.map((student) => {
+        const studentAverage =
+          student.scores.reduce((res, n) => res + n) / student.scores.length;
+        const newStudent = { name: student.name, average: studentAverage };
+        return newStudent;
+      });
+
+      // Step 4:
+      // Only consider those students whose average is > 90
+      // Use filter
+
+      const data4 = data3.filter((student) => student.average > 90);
+    </script>
+  </body>
+</html>

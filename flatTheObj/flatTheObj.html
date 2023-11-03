@@ -148,10 +148,13 @@
             resultObj[new_key] = obj[key];
           } else {
             flatTheObj(obj[key], new_key);
+            resultObj[new_key + "_count"] = Object.keys(obj[key]).length;
           }
         }
         return resultObj;
       }
+
+      const levels = { l1: { l2: { l3: "value" } } };
     </script>
   </body>
 </html>
