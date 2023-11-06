@@ -5,16 +5,19 @@ const easySettings = {
   name: "easy",
   range: 10,
   rounds: 3,
+  baseScore: 30,
 };
 const mediumSettings = {
   name: "medium",
   range: 20,
   rounds: 2,
+  baseScore: 50,
 };
 const hardSettings = {
   name: "hard",
   range: 30,
   rounds: 1,
+  baseScore: 100,
 };
 
 let appliedSettings = easySettings;
@@ -34,12 +37,13 @@ const inputGuess = document.getElementById("inputGuess");
 buttonGuess.onclick = function () {
   const guess = getUserGuess();
   if (guess === secretNo) {
-    alertUser("You won");
+    const score = calculateScore(currentRound);
     buttonGuess.disabled = true;
+    alertUser(`You won. Your score is: ${score}`);
   } else {
     const triesLeft = appliedSettings.rounds - currentRound;
     if (triesLeft === 0) {
-      alertUser("Game over. You lost");
+      alertUser("Game over. You lost. Score is 0");
       buttonGuess.disabled = true;
     } else {
       alertUser(`Please try again. Tries left: ${triesLeft}`);
@@ -126,4 +130,11 @@ function alertUser(message) {
   const li = document.createElement("li");
   li.innerText = message;
   ul.prepend(li);
+}
+
+function calculateScore(attempts) {
+  const base = appliedSettings.baseScore;
+  const roundFactor = Math.pow(2, attempts - 1);
+  const finalScore = Math.round(base / roundFactor);
+  return finalScore;
 }
