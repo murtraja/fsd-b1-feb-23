@@ -9,8 +9,33 @@
     li:first-child {
       color: red;
     }
+    #difficultyFieldset {
+      margin-bottom: 10px;
+    }
   </style>
   <body>
+    <fieldset id="difficultyFieldset">
+      <legend>Difficulty</legend>
+      <input
+        type="radio"
+        name="difficulty"
+        value="easy"
+        id="radioEasyDifficulty"
+        checked
+      /><label for="radioEasyDifficulty">Easy</label>
+      <input
+        type="radio"
+        name="difficulty"
+        value="medium"
+        id="radioMediumDifficulty"
+      /><label for="radioMediumDifficulty">Medium</label>
+      <input
+        type="radio"
+        name="difficulty"
+        value="hard"
+        id="radioHardDifficulty"
+      /><label for="radioHardDifficulty">Hard</label>
+    </fieldset>
     <input type="number" id="inputGuess" value="1" />
     <input type="button" id="buttonGuess" value="Guess" />
     <ul id="alerts"></ul>

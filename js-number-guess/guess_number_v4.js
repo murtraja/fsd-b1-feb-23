@@ -2,19 +2,22 @@
 Settings section
 =================*/
 const easySettings = {
+  name: "easy",
   range: 10,
   rounds: 3,
 };
 const mediumSettings = {
+  name: "medium",
   range: 20,
   rounds: 2,
 };
 const hardSettings = {
+  name: "hard",
   range: 30,
   rounds: 1,
 };
 
-const appliedSettings = easySettings;
+let appliedSettings = easySettings;
 
 /*=================
 Game initialization section
@@ -43,17 +46,39 @@ buttonGuess.onclick = function () {
     }
   }
   currentRound++;
+  document.querySelectorAll("input[name='difficulty']").forEach((input) => {
+    input.disabled = true;
+  });
 };
-const playRound = function playRound(roundNo, totalRounds, secretNo) {
-  const tryString = `(Try ${roundNo} of ${totalRounds})`;
-  const guessNo = Number(
-    prompt(
-      `Please guess a number between 1 and ${appliedSettings.range} ${tryString}`
-    )
-  );
 
-  return guessNo;
-};
+document.querySelectorAll("input[name='difficulty']").forEach((input) => {
+  input.addEventListener("change", (evt) => {
+    if (currentRound === 1) {
+      switch (evt.target.value) {
+        case "easy":
+          appliedSettings = easySettings;
+          break;
+
+        case "medium":
+          appliedSettings = mediumSettings;
+          break;
+
+        case "hard":
+          appliedSettings = hardSettings;
+      }
+    }
+  });
+});
+// const playRound = function playRound(roundNo, totalRounds, secretNo) {
+//   const tryString = `(Try ${roundNo} of ${totalRounds})`;
+//   const guessNo = Number(
+//     prompt(
+//       `Please guess a number between 1 and ${appliedSettings.range} ${tryString}`
+//     )
+//   );
+
+//   return guessNo;
+// };
 console.log("generated secret no: ", secretNo);
 const totalRounds = appliedSettings.rounds;
 let userWon = false;
