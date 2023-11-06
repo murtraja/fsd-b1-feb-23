@@ -14,13 +14,13 @@ const hardSettings = {
   rounds: 1,
 };
 
-const appliedSettings = hardSettings;
+const appliedSettings = easySettings;
 
 /*=================
 Game initialization section
 =================*/
 const secretNo = getRandomNumBetween(1, appliedSettings.range);
-const currentRound = 1;
+let currentRound = 1;
 
 /*=================
 HTML elements initialization section
@@ -29,9 +29,20 @@ const buttonGuess = document.getElementById("buttonGuess");
 const inputGuess = document.getElementById("inputGuess");
 
 buttonGuess.onclick = function () {
-  console.log("Guess button was clicked");
-  const guess = inputGuess.value;
-  console.log(guess);
+  const guess = getUserGuess();
+  if (guess === secretNo) {
+    alertUser("You won");
+    buttonGuess.disabled = true;
+  } else {
+    const triesLeft = appliedSettings.rounds - currentRound;
+    if (triesLeft === 0) {
+      alertUser("Game over. You lost");
+      buttonGuess.disabled = true;
+    } else {
+      alertUser(`Please try again. Tries left: ${triesLeft}`);
+    }
+  }
+  currentRound++;
 };
 const playRound = function playRound(roundNo, totalRounds, secretNo) {
   const tryString = `(Try ${roundNo} of ${totalRounds})`;
@@ -47,29 +58,29 @@ console.log("generated secret no: ", secretNo);
 const totalRounds = appliedSettings.rounds;
 let userWon = false;
 
-for (let round = 1; round <= totalRounds; round++) {
-  console.log(round);
-  const result = playRound(round, totalRounds, secretNo);
-  if (result === secretNo) {
-    // user gave the right answer
-    alert("You won");
-    userWon = true;
-    break;
-  }
-  if (round != totalRounds) {
-    if (isNaN(result) || result < 1 || result > appliedSettings.range) {
-      alert("Try again. You entered an invalid number");
-    } else {
-      const higherOrLower = result > secretNo ? "higher" : "lower";
-      alert(
-        `Try again. You entered a number (${result}) ${higherOrLower} than the secret`
-      );
-    }
-  }
-}
-if (!userWon) {
-  alert("You lost. Game over!");
-}
+// for (let round = 1; round <= totalRounds; round++) {
+//   console.log(round);
+//   const result = playRound(round, totalRounds, secretNo);
+//   if (result === secretNo) {
+//     // user gave the right answer
+//     alert("You won");
+//     userWon = true;
+//     break;
+//   }
+//   if (round != totalRounds) {
+//     if (isNaN(result) || result < 1 || result > appliedSettings.range) {
+//       alert("Try again. You entered an invalid number");
+//     } else {
+//       const higherOrLower = result > secretNo ? "higher" : "lower";
+//       alert(
+//         `Try again. You entered a number (${result}) ${higherOrLower} than the secret`
+//       );
+//     }
+//   }
+// }
+// if (!userWon) {
+//   alert("You lost. Game over!");
+// }
 
 /*=================
 Utilities / Helper section
