@@ -25,8 +25,8 @@ let appliedSettings = easySettings;
 /*=================
 Game initialization section
 =================*/
-const secretNo = getRandomNumBetween(1, appliedSettings.range);
-let currentRound = 1;
+let secretNo;
+let currentRound;
 
 /*=================
 HTML elements initialization section
@@ -34,26 +34,50 @@ HTML elements initialization section
 const buttonGuess = document.getElementById("buttonGuess");
 const inputGuess = document.getElementById("inputGuess");
 
-buttonGuess.onclick = function () {
-  const guess = getUserGuess();
-  if (guess === secretNo) {
-    const score = calculateScore(currentRound);
-    buttonGuess.disabled = true;
-    alertUser(`You won. Your score is: ${score}`);
-  } else {
-    const triesLeft = appliedSettings.rounds - currentRound;
-    if (triesLeft === 0) {
-      alertUser("Game over. You lost. Score is 0");
+buttonGuess.onclick = function (evt) {
+  const buttonValue = evt.target.value;
+  console.log(buttonValue);
+  if (buttonValue === "Start game") {
+    buttonGuess.value = "Guess";
+    inputGuess.disabled = false;
+    document.querySelectorAll("input[name='difficulty']").forEach((input) => {
+      input.disabled = true;
+    });
+  } else if (buttonValue === "Guess") {
+    const guess = getUserGuess();
+    if (guess === secretNo) {
+      const score = calculateScore(currentRound);
       buttonGuess.disabled = true;
+      alertUser(`You won. Your score is: ${score}`);
     } else {
-      alertUser(`Please try again. Tries left: ${triesLeft}`);
+      const triesLeft = appliedSettings.rounds - currentRound;
+      if (triesLeft === 0) {
+        alertUser("Game over. You lost. Score is 0");
+        buttonGuess.disabled = true;
+      } else {
+        const higherOrLower = guess > secretNo ? "higher" : "lower";
+        alertUser(
+          `You entered a number (${guess}) ${higherOrLower} than the secret. Tries left: ${triesLeft}`
+        );
+      }
     }
+    currentRound++;
   }
-  currentRound++;
-  document.querySelectorAll("input[name='difficulty']").forEach((input) => {
-    input.disabled = true;
-  });
 };
+
+function onGameOver() {
+  //1. Change "Guess" -> "Start game"
+  //2. Clicking "Start game" should reset the game
+}
+
+function initializeGame() {
+  currentRound = 1;
+  document.querySelectorAll("input[name='difficulty']").forEach((input) => {
+    input.disabled = false;
+  });
+  secretNo = getRandomNumBetween(1, appliedSettings.range);
+  buttonGuess.value = "Guess";
+}
 
 document.querySelectorAll("input[name='difficulty']").forEach((input) => {
   input.addEventListener("change", (evt) => {
@@ -73,43 +97,6 @@ document.querySelectorAll("input[name='difficulty']").forEach((input) => {
     }
   });
 });
-// const playRound = function playRound(roundNo, totalRounds, secretNo) {
-//   const tryString = `(Try ${roundNo} of ${totalRounds})`;
-//   const guessNo = Number(
-//     prompt(
-//       `Please guess a number between 1 and ${appliedSettings.range} ${tryString}`
-//     )
-//   );
-
-//   return guessNo;
-// };
-console.log("generated secret no: ", secretNo);
-const totalRounds = appliedSettings.rounds;
-let userWon = false;
-
-// for (let round = 1; round <= totalRounds; round++) {
-//   console.log(round);
-//   const result = playRound(round, totalRounds, secretNo);
-//   if (result === secretNo) {
-//     // user gave the right answer
-//     alert("You won");
-//     userWon = true;
-//     break;
-//   }
-//   if (round != totalRounds) {
-//     if (isNaN(result) || result < 1 || result > appliedSettings.range) {
-//       alert("Try again. You entered an invalid number");
-//     } else {
-//       const higherOrLower = result > secretNo ? "higher" : "lower";
-//       alert(
-//         `Try again. You entered a number (${result}) ${higherOrLower} than the secret`
-//       );
-//     }
-//   }
-// }
-// if (!userWon) {
-//   alert("You lost. Game over!");
-// }
 
 /*=================
 Utilities / Helper section

@@ -36,8 +36,8 @@
         id="radioHardDifficulty"
       /><label for="radioHardDifficulty">Hard</label>
     </fieldset>
-    <input type="number" id="inputGuess" value="1" />
-    <input type="button" id="buttonGuess" value="Guess" />
+    <input type="number" id="inputGuess" value="" disabled />
+    <input type="button" id="buttonGuess" value="Start game" />
     <ul id="alerts"></ul>
     <script src="guess_number_v4.js"></script>
 
@@ -50,6 +50,11 @@
           -> Complex calculation
           -> Dynamic table creation
         3. User can select difficulty level before game begins
+
+        Next session:
+          -> instead of "try again", say whether the number is higher / lower
+          -> ability to start a new game
+          -> track the score
      -->
   </body>
 </html>
