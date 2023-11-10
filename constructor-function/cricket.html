@@ -28,28 +28,45 @@
         let runs = 0;
         const target = _target;
 
+        this.checkIfGameIsOver = function () {};
+
+        this.didWin = function () {
+          return runs > target;
+        };
+
+        const incrementRunsBy = function (delta) {
+          //   console.log(this);
+          if (this.didWin()) {
+            console.log("Already won");
+          } else {
+            runs += delta;
+          }
+        };
+
         this.zeroRun = function () {
-          runs += 0;
+          incrementRunsBy.call(this, 0);
         };
 
         this.singleRun = function () {
-          runs += 1;
+          incrementRunsBy.call(this, 1);
         };
 
         this.doubleRun = function () {
-          runs += 2;
+          incrementRunsBy.call(this, 2);
         };
 
         this.tripleRun = function () {
-          runs += 3;
+          incrementRunsBy.call(this, 3);
         };
 
         this.boundaryFour = function () {
-          runs += 4;
+          incrementRunsBy.call(this, 4);
         };
 
         this.boundarySix = function () {
-          runs += 6;
+          //   console.log(this);
+
+          incrementRunsBy.call(this, 6);
         };
         this.printRuns = function () {
           console.log(runs);
@@ -58,7 +75,7 @@
           return runs > target;
         };
       }
-      const tracker = new RunsTracker(60);
+      const tracker = new RunsTracker(6);
       console.log(tracker.runs);
     </script>
   </body>
