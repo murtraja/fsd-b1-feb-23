@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // some javascript code that keeps track of runs in a cricket match
+
+      /*
+            properties of runs
+                1. has to be >= 0
+                2. integer, not a float
+                3. can be incremented, but can't decrease
+                4. increments
+                    -> 0
+                    -> 1
+                    -> 2
+                    -> 3
+                    -> 4
+                    -> 6
+                5. runs can't be arbitrarily set, starts with 0
+                6. Once the runs exceed the target, then you cannot increment runs
+        */
+      function RunsTracker(_target) {
+        let runs = 0;
+        const target = _target;
+
+        this.zeroRun = function () {
+          runs += 0;
+        };
+
+        this.singleRun = function () {
+          runs += 1;
+        };
+
+        this.doubleRun = function () {
+          runs += 2;
+        };
+
+        this.tripleRun = function () {
+          runs += 3;
+        };
+
+        this.boundaryFour = function () {
+          runs += 4;
+        };
+
+        this.boundarySix = function () {
+          runs += 6;
+        };
+        this.printRuns = function () {
+          console.log(runs);
+        };
+        this.didWin = function () {
+          return runs > target;
+        };
+      }
+      const tracker = new RunsTracker(60);
+      console.log(tracker.runs);
+    </script>
+  </body>
+</html>
