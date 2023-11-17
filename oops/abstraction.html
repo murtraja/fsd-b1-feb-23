@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      class Shape {
+        constructor(name) {
+          this.name = name;
+        }
+        area() {
+          console.log("Shape area");
+          // this should never be called
+          throw new Error("Cannot call abstract method area");
+        }
+      }
+
+      class Rectangle extends Shape {
+        constructor(_width, _height) {
+          super("book");
+          this.width = _width;
+          this.height = _height;
+        }
+        area() {
+          return this.width * this.height;
+        }
+      }
+      class Square extends Shape {
+        constructor(_side) {
+          super("piece");
+          this.side = _side;
+        }
+        area() {
+          return this.side * this.side;
+        }
+      }
+      class Circle extends Shape {
+        constructor(_radius) {
+          super("coin");
+          this.radius = _radius;
+        }
+        area() {
+          return Math.PI * this.radius * this.radius;
+        }
+      }
+      const rect = new Rectangle(6, 4);
+      //   console.log(rect.area());
+
+      const square = new Square(5);
+      //   console.log(square.area());
+
+      const circle = new Circle(3);
+      //   console.log(circle.area());
+
+      class Circle2 {
+        constructor(_radius) {
+          this.radius = _radius;
+        }
+        area() {
+          return Math.PI * this.radius * this.radius;
+        }
+      }
+
+      const circl2 = new Circle2(5);
+      function logArea(shape) {
+        if (shape instanceof Shape) {
+          console.log("we have passed a shape object");
+          console.log(
+            `The area of ${shape.name} is ${shape.area()} cm squared`
+          );
+        } else {
+          console.error("You have not passed a shape object");
+        }
+      }
+      logArea(rect);
+      logArea(square);
+      logArea(circle);
+      logArea(circl2);
+    </script>
+  </body>
+</html>
