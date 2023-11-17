@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inheritance</title>
+  </head>
+  <body>
+    <script>
+      /* How to inherit properties / methods in es5 */
+      //   const a = { name: "akash", age: 23 };
+      //   console.log(a.__proto__); // Object
+      //   console.log(a.__proto__.__proto__); // null
+
+      //   // const b = {__proto__:a}
+      //   const b = Object.create(a);
+      //   const c = Object.create(a);
+      //   c["name"] = "Murtaza";
+      //   //   const c = { ...Object.create(a), name: "murtaza" };
+      //   console.log(b.name); // akash
+
+      //   console.log(b.__proto__); // a  OR {name: "akash", age:23}
+      //   console.log(b.__proto__.__proto__); // Object
+      //   console.log(b.__proto__.__proto__.__proto__); // null
+      //   b.__proto__.greet = function () {
+      //     console.log(`My name is ${this.name} and I am ${this.age} years old`);
+      //   };
+      //   c.greet();
+
+      /* single instance for the methods : ES 5*/
+
+      function Rectangle(width, height) {
+        this.width = width;
+        this.height = height;
+      }
+      Rectangle.prototype.area = function () {
+        return this.width * this.height;
+      };
+
+      const book = new Rectangle(4, 9);
+      const frame = new Rectangle(7, 8);
+      console.log(book.area());
+      console.log(frame.area());
+
+      /* single instance for the methods : ES 6*/
+      //   class Rectangle {
+      //     constructor(width, height) {
+      //       this.width = width;
+      //       this.height = height;
+      //     }
+      //     area() {
+      //       return this.width * this.height;
+      //     }
+      //   }
+      //   const book = new Rectangle(4, 9);
+      //   const frame = new Rectangle(7, 8);
+      //   console.log(book.area());
+      //   console.log(frame.area());
+      //   console.log(book.area === frame.area);
+    </script>
+  </body>
+</html>

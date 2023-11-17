@@ -16,6 +16,10 @@
           // this should never be called
           throw new Error("Cannot call abstract method area");
         }
+        logArea = () => {
+          console.log(this);
+          console.log(`The area of ${this.name} is ${this.area()} cm squared`);
+        };
       }
 
       class Rectangle extends Shape {
@@ -62,23 +66,29 @@
         area() {
           return Math.PI * this.radius * this.radius;
         }
+        arrowfunc = () => {
+          console.log(this.radius);
+        };
       }
 
       const circl2 = new Circle2(5);
-      function logArea(shape) {
-        if (shape instanceof Shape) {
-          console.log("we have passed a shape object");
-          console.log(
-            `The area of ${shape.name} is ${shape.area()} cm squared`
-          );
-        } else {
-          console.error("You have not passed a shape object");
-        }
-      }
-      logArea(rect);
-      logArea(square);
-      logArea(circle);
-      logArea(circl2);
+      //   function logArea(shape) {
+      //     if (shape instanceof Shape) {
+      //       console.log("we have passed a shape object");
+      //       console.log(
+      //         `The area of ${shape.name} is ${shape.area()} cm squared`
+      //       );
+      //     } else {
+      //       console.error("You have not passed a shape object");
+      //     }
+      //   }
+      //   logArea(rect);
+      //   logArea(square);
+      //   logArea(circle);
+      //   logArea(circl2);
+      rect.logArea();
+      square.logArea();
+      circle.logArea();
     </script>
   </body>
 </html>
