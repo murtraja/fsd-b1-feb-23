@@ -1,8 +1,9 @@
 const board = [
-  ["O", "O", "X"],
-  ["", "X", "X"],
-  ["X", "", "O"],
+  ["", "", ""],
+  ["", "", ""],
+  ["", "", ""],
 ];
+let currentPlayer = "X";
 // "" -> empty
 // X -> player 1
 // O -> player 2
@@ -27,12 +28,33 @@ function placeMark(mark, row, col) {
   board[row][col] = mark;
 }
 
+function changePlayer() {
+  if (currentPlayer === "X") {
+    currentPlayer = "O";
+  } else {
+    currentPlayer = "X";
+  }
+}
+
 function isRowEqual(mark, row) {
   return (
     board[row][0] === board[row][1] &&
     board[row][1] === board[row][2] &&
     board[row][0] === mark
   );
+
+  /* the following code has coupling with UI - BAD design*/
+  // if (row === 0) {
+  //   return (
+  //     document.getElementById("1").innerHTML ===
+  //       document.getElementById("2").innerHTML &&
+  //     document.getElementById("2").innerHTML ===
+  //       document.getElementById("3").innerHTML &&
+  //     document.getElementById("2").innerHTML === mark
+  //   );
+  // } else {
+  //   return false;
+  // }
 }
 
 function isColEqual(mark, col) {
@@ -76,3 +98,68 @@ function isPlayerWinner(mark) {
   }
   return false;
 }
+function updateUI() {
+  // based on the current state of the board / game,
+  // update the UI elements
+  board.forEach((rowValue, row) => {
+    rowValue.forEach((colValue, col) => {
+      /*
+        Row   Col   Id    Formula               Final Formula
+        0     0     1
+        0     1     2     Id = 3*0 + Col + 1    Id = 3*Row + Col + 1
+        0     2     3 
+        1     0     4     
+        1     1     5     Id = 3*1 + Col + 1    Id = 3*Row + Col + 1
+        1     2     6
+        2     0     7
+        2     1     8     Id = 3*2 + Col + 1    Id = 3*Row + Col + 1
+        2     2     9
+      */
+      const id = 3 * row + col + 1;
+      // console.log(`${row},${col} => ${id}`);
+      document.getElementById(id).innerHTML = board[row][col];
+    });
+  });
+
+  // x = a + b
+  // b = x - a
+}
+
+document.querySelectorAll("div.grid button").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // console.log(`clicked on ${btn.id}`);
+    if (btn.innerHTML === "") {
+      // place a mark here
+      console.log("do something here");
+      /*
+        Id    Row   Col   Formula               Final Formula
+        1     0     0
+        2     0     1     Row = (Id-1)/3        Col = Id - 1 - 3*Row
+        3     0     2
+        4     1     0
+        5     1     1     Row = (Id-1)/3        Col = Id - 1 - 3*Row
+        6     1     2
+        7     2     0
+        8     2     1     Row = (Id-1)/3        Col = Id - 1 - 3*Row
+        9     2     2
+      */
+      const id = btn.id;
+      const row = Math.floor((id - 1) / 3);
+      // const col = id - 1 - 3 * row;
+      const col = (id - 1) % 3;
+      // console.log(`${id} => (${row}, ${col})`);
+      placeMark(currentPlayer, row, col);
+      if (isPlayerWinner(currentPlayer)) {
+        alert(`${currentPlayer} has won the game`);
+        document.querySelectorAll("div.grid button").forEach((btn) => {
+          btn.disabled = true;
+        });
+      } else {
+        changePlayer();
+      }
+      updateUI();
+    } else {
+      console.log("already placed the mark here.");
+    }
+  });
+});
