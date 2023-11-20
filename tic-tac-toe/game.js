@@ -1,3 +1,4 @@
+/* ========= BUSINESS LOGIC ==========*/
 const board = [
   ["", "", ""],
   ["", "", ""],
@@ -113,6 +114,9 @@ function isDraw() {
   }
   return true;
 }
+
+/*============ UI PART ============*/
+
 function updateUI() {
   // based on the current state of the board / game,
   // update the UI elements
@@ -186,3 +190,21 @@ document.querySelectorAll("div.grid button").forEach((btn) => {
     }
   });
 });
+
+// TODO: homework
+class Game {
+  constructor() {
+    // initialize game board here
+    // initialize current player here
+    // game state -> won or draw
+    // other state variables for the game
+  }
+
+  // public methods:
+  // changePlayer()
+  // placeMark()
+  // isDraw()
+  // isPlayerWinner()
+
+  // rest business logic methods private
+}
