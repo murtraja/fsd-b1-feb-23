@@ -4,6 +4,10 @@ const board = [
   ["", "", ""],
 ];
 let currentPlayer = "X";
+const playerNumber = {
+  X: 1,
+  O: 2,
+};
 // "" -> empty
 // X -> player 1
 // O -> player 2
@@ -98,6 +102,17 @@ function isPlayerWinner(mark) {
   }
   return false;
 }
+
+function isDraw() {
+  for (let row = 0; row < 3; row++) {
+    for (let col = 0; col < 3; col++) {
+      if (board[row][col] === "") {
+        return false;
+      }
+    }
+  }
+  return true;
+}
 function updateUI() {
   // based on the current state of the board / game,
   // update the UI elements
@@ -125,6 +140,12 @@ function updateUI() {
   // b = x - a
 }
 
+function showAlert(message) {
+  setTimeout(() => {
+    alert(message);
+  }, 0);
+}
+
 document.querySelectorAll("div.grid button").forEach((btn) => {
   btn.addEventListener("click", () => {
     // console.log(`clicked on ${btn.id}`);
@@ -149,15 +170,17 @@ document.querySelectorAll("div.grid button").forEach((btn) => {
       const col = (id - 1) % 3;
       // console.log(`${id} => (${row}, ${col})`);
       placeMark(currentPlayer, row, col);
+      updateUI();
       if (isPlayerWinner(currentPlayer)) {
-        alert(`${currentPlayer} has won the game`);
+        showAlert(`Congratulations! Player${playerNumber[currentPlayer]} wins`);
         document.querySelectorAll("div.grid button").forEach((btn) => {
           btn.disabled = true;
         });
+      } else if (isDraw()) {
+        showAlert("Draw!");
       } else {
         changePlayer();
       }
-      updateUI();
     } else {
       console.log("already placed the mark here.");
     }
