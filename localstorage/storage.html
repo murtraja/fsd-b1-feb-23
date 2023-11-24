@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Local storage</title>
+  </head>
+  <body>
+    <script>
+      console.log("hi");
+      localStorage.setItem("name", "Murtaza");
+      localStorage.setItem("age", 10);
+
+      // You can check these values under inspector -> application -> local storage
+      // -> website name
+
+      // Now to retrieve the values:
+      console.log(localStorage.getItem("name"));
+      console.log(localStorage.getItem("age"));
+
+      // The saved item will always be saved as a string
+      // example:
+      const myArray = [1, 3, 4];
+      console.log("type of myArray: ", typeof myArray); // object
+      localStorage.setItem("array", myArray);
+      const retrievedArray = localStorage.getItem("array");
+      console.log("retrievedArray: ", retrievedArray);
+      console.log("type of retrievedArray: ", typeof retrievedArray); //string
+
+      // conclusion: setItem always saves it in a string format
+      // Question: How to then save arrays / objects so that we can retrieve it from sring?
+
+      // Answer: Use JSON.stringify to convert object to string
+      // use JSON.parse to convert string back to object
+
+      localStorage.setItem("array", JSON.stringify(myArray));
+      const retrievedArrayString = localStorage.getItem("array");
+      const parsedArray = JSON.parse(retrievedArrayString);
+      console.log(parsedArray);
+      console.log("type of parsedArray: ", typeof parsedArray);
+    </script>
+  </body>
+</html>
