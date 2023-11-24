@@ -38,6 +38,13 @@
       const parsedArray = JSON.parse(retrievedArrayString);
       console.log(parsedArray);
       console.log("type of parsedArray: ", typeof parsedArray);
+
+      const arrayOfObjects = [
+        { name: { firstName: "Murtaza", lastName: "Raja" }, age: 34 },
+        { name: "Anurag", age: 20 },
+      ];
+      console.log(JSON.stringify(arrayOfObjects));
+      console.log(JSON.parse(JSON.stringify(arrayOfObjects)));
     </script>
   </body>
 </html>
