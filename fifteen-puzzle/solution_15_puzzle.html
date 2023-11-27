@@ -126,7 +126,20 @@
             board[row - 1][col] = BLANK;
           }
         }
-        printBoard();
+        updateUI();
+      }
+      function updateUI() {
+        for (let row = 0; row < SIZE; row++) {
+          for (let col = 0; col < SIZE; col++) {
+            const id = board[row][col];
+            if (id === BLANK) {
+              continue;
+            }
+            const tile = document.querySelector(`.tile${id}`);
+            tile.style.top = row * 100 + "px";
+            tile.style.left = col * 100 + "px";
+          }
+        }
       }
     </script>
   </body>

@@ -17,8 +17,8 @@ body {
 .tile {
   width: 100px;
   height: 100px;
-  /* background-image: url(./image.jpeg); */
-  background-image: url(./image_with_numbers.png);
+  background-image: url(./image.jpeg);
+  /* background-image: url(./image_with_numbers.png); */
   background-repeat: no-repeat;
   position: absolute;
   outline: 1px solid black;
@@ -28,6 +28,22 @@ body {
   transform: rotate(5deg);
   z-index: 1;
 }
+
+/*
+row   col   top   left
+0     0     0     0
+0     1     0     100
+0     2     0     200
+0     3     0     300
+
+1     0     100   0
+1     1     100   100
+1     2     100   200
+1     3     100   300
+
+top = row*100
+left = col*100
+*/
 .tile0 {
   top: 0;
   left: 0px;
