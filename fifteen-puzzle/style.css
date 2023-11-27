@@ -28,103 +28,103 @@ body {
   transform: rotate(5deg);
   z-index: 1;
 }
-.tile1 {
+.tile0 {
   top: 0;
   left: 0px;
   background-position: left 0px top 0px;
 }
-.tile2 {
+.tile1 {
   /* outline: 2px solid black; */
   top: 0;
   left: 100px;
   background-position: left -100px top 0px;
 }
-.tile3 {
+.tile2 {
   /* outline: 2px solid black; */
   top: 0;
   left: 200px;
   background-position: left -200px top 0px;
 }
-.tile4 {
+.tile3 {
   /* outline: 2px solid black; */
   top: 0;
   left: 300px;
   background-position: left -300px top 0px;
 }
 
-.tile5 {
+.tile4 {
   top: 100px;
   left: 0px;
   background-position: left 0px top -100px;
 }
-.tile6 {
+.tile5 {
   /* outline: 2px solid black; */
   top: 100px;
   left: 100px;
   background-position: left -100px top -100px;
 }
-.tile7 {
+.tile6 {
   /* outline: 2px solid black; */
   top: 100px;
   left: 200px;
   background-position: left -200px top -100px;
 }
-.tile8 {
+.tile7 {
   /* outline: 2px solid black; */
   top: 100px;
   left: 300px;
   background-position: left -300px top -100px;
 }
 
-.tile9 {
+.tile8 {
   top: 200px;
   left: 0px;
   background-position: left 0px top -200px;
 }
-.tile10 {
+.tile9 {
   /* outline: 2px solid black; */
   top: 200px;
   left: 100px;
   background-position: left -100px top -200px;
 }
-.tile11 {
+.tile10 {
   /* outline: 2px solid black; */
   top: 200px;
   left: 200px;
   background-position: left -200px top -200px;
 }
-.tile12 {
+.tile11 {
   /* outline: 2px solid black; */
   top: 200px;
   left: 300px;
   background-position: left -300px top -200px;
 }
-.tile12:hover {
+.tile11:hover {
   /* transform: translateY(100px); */
   /* top: 300px; */
 }
 
-.tile13 {
+.tile12 {
   top: 300px;
   left: 0px;
   background-position: left 0px top -300px;
 }
-.tile14 {
+.tile13 {
   /* outline: 2px solid black; */
   top: 300px;
   left: 100px;
   background-position: left -100px top -300px;
 }
-.tile15 {
+.tile14 {
   /* outline: 2px solid black; */
   top: 300px;
   left: 200px;
   background-position: left -200px top -300px;
 }
-.tile15:hover {
+.tile14:hover {
   /* left: 300px; */
 }
-.tile16 {
+.tile15 {
   /* outline: 2px solid black; */
   top: 300px;
   left: 300px;
