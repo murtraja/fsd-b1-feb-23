@@ -26,6 +26,107 @@
       <!-- <div class="tile tile16"></div> -->
     </div>
 
-    <img src="./image.jpeg" />
+    <!-- <img src="./image.jpeg" /> -->
+    <script>
+      /*
+       Shift the tiles when arrow keys are pressed
+
+       Task 1: Listen to arrow keys pressed event
+
+       Task 2: Which tile to move when the arrow is pressed?
+       */
+
+      /*
+       ========= BUSINESS LOGIC ==========
+       */
+      const SIZE = 4;
+      const BLANK = 15;
+      const board = [
+        [0, 1, 2, 3],
+        [4, 5, 6, 7],
+        [8, 9, 10, 11],
+        [12, 13, 14, BLANK],
+      ];
+      function getRowColFor(id) {
+        for (let row = 0; row < SIZE; row++) {
+          for (let col = 0; col < SIZE; col++) {
+            if (board[row][col] === id) {
+              return [row, col];
+            }
+          }
+        }
+        throw new Exception(`Piece with ${id} not found`);
+      }
+      function printBoard() {
+        let result = "";
+        for (let row = 0; row < SIZE; row++) {
+          for (let col = 0; col < SIZE; col++) {
+            if (board[row][col] === BLANK) {
+              result += "\t□";
+            } else {
+              result += "\t" + board[row][col];
+            }
+          }
+          result += "\n";
+        }
+        console.log(result);
+      }
+      /*
+       ========= UI interaction ==========
+       */
+      document.body.addEventListener("keydown", onKeyDown);
+      function onKeyDown(evt) {
+        const key = evt.key;
+        if (key === "ArrowRight") {
+          console.log("You have pressed →");
+          // Figure out the piece that is present
+          // on the LEFT of the BLANK
+
+          /*
+           Algorithm:
+           1. Get row,col for the BLANK piece
+           2. subtract 1 from col
+           3. if out of bounds, nothing to do
+           4. otherwise print the piece
+
+           Example:
+           1. (3,3) is BLANK
+           2. (3,2) is the LEFT piece
+           4. board[3][2]
+           */
+          const [row, col] = getRowColFor(BLANK);
+          if (col - 1 >= 0) {
+            console.log(`Piece ${board[row][col - 1]} should get moved`);
+            board[row][col] = board[row][col - 1];
+            board[row][col - 1] = BLANK;
+          }
+        } else if (key === "ArrowLeft") {
+          console.log("You have pressed ←");
+          const [row, col] = getRowColFor(BLANK);
+          if (col + 1 < SIZE) {
+            console.log(`Piece ${board[row][col + 1]} should get moved`);
+            board[row][col] = board[row][col + 1];
+            board[row][col + 1] = BLANK;
+          }
+        } else if (key === "ArrowUp") {
+          console.log("You have pressed ↑");
+          const [row, col] = getRowColFor(BLANK);
+          if (row + 1 < SIZE) {
+            console.log(`Piece ${board[row + 1][col]} should get moved`);
+            board[row][col] = board[row + 1][col];
+            board[row + 1][col] = BLANK;
+          }
+        } else if (key === "ArrowDown") {
+          console.log("You have pressed ↓");
+          const [row, col] = getRowColFor(BLANK);
+          if (row - 1 >= 0) {
+            console.log(`Piece ${board[row - 1][col]} should get moved`);
+            board[row][col] = board[row - 1][col];
+            board[row - 1][col] = BLANK;
+          }
+        }
+        printBoard();
+      }
+    </script>
   </body>
 </html>
