@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+      /*
+        synchronous vs asynchronous
+
+        synchronous: telephone call
+        the caller and the responder are blocked
+
+        async: chat
+        both parties are independent in the sense that they are not "blocked" when communicating
+
+        Promise: defer the value of some operation to a later time
+
+        State of a promise
+
+        1. Pending: initial state
+        2. fulfilled: success state
+        3. rejected: failure state
+        4. settled: either success or failure
+
+
+        Syntax:
+        How to create a promise?
+
+        promise = new Promise((resolve, reject)=> {
+            // if your task is successful
+            // then you call
+            // resolve(result)
+
+            // if it is unsuccessful,
+            // then you call
+            // reject(error)
+        })
+
+        promise = new Promise((resolve, reject)=> {})
+        promise = new Promise((resolve, reject)=> {resolve()})
+        promise = new Promise((resolve, reject)=> {resolve(3)})
+
+
+        promise = new Promise((resolve, reject)=> {reject()})
+        promise = new Promise((resolve, reject)=> {reject(new Error("some error"))})
+        promise = new Promise((resolve, reject)=> {reject(3)})
+
+        */
+      console.log("hi");
+
+      /*
+      promise state change from pending to fulfilled
+      */
+      //   promise = new Promise((resolve, reject) => {
+      //     setTimeout(resolve, 3000);
+      //   });
+
+      /*
+      promise state change from pending to rejected
+      */
+      //   promise = new Promise((resolve, reject) => {
+      //     setTimeout(reject, 3000);
+      //   });
+
+      //   setTimeout(() => {
+      //     console.log(promise);
+      //   }, 1000);
+      //   setTimeout(() => {
+      //     console.log(promise);
+      //   }, 2000);
+      //   setTimeout(() => {
+      //     console.log(promise);
+      //   }, 3000);
+      //   setTimeout(() => {
+      //     console.log(promise);
+      //   }, 4000);
+      //   console.log(promise);
+      //   console.log(promise);
+      //   console.log(promise);
+      //   console.log(promise);
+
+      /*
+      How to extract promise value when it is settled
+      */
+      url1 = "https://animechan.xyz/api/random";
+      url2 = "https://my-json-server.typicode.com/FreSauce/json-ipl/data";
+      url3 = "http://localhost:3000/users";
+      //   fetchPromise = fetch(url2);
+      //   fetchPromise.then((fetchData) => {
+      //     console.log("received the fetchData");
+      //     jsonPromise = fetchData.json();
+      //     console.log(jsonPromise);
+      //     jsonPromise.then((jsonData) => {
+      //       console.log("got json data");
+      //       console.log(jsonData);
+      //     });
+      //   });
+
+      // Promise chaining
+      //   fetchPromise = fetch(url3);
+      //   fetchPromise
+      //     .then((result) => {
+      //       console.log("received the result");
+      //       jsonPromise = result.json();
+      //       console.log(jsonPromise);
+      //       return jsonPromise;
+      //     })
+      //     .then((jsonData) => {
+      //       console.log("got json data");
+      //       console.log(jsonData);
+      //     })
+      //     .catch((error) => {
+      //       console.log(error);
+      //     });
+
+      function printJsonDataUsingFetch(url) {
+        fetchPromise = fetch(url);
+        fetchPromise
+          .then((result) => {
+            console.log("received the result");
+            jsonPromise = result.json();
+            console.log(jsonPromise);
+            return jsonPromise;
+          })
+          .then((jsonData) => {
+            console.log("got json data");
+            console.log(jsonData);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      function postJsonDataUsingFetch() {
+        postData = {
+          name: "Anurag",
+          age: 30,
+        };
+        fetchPromise = fetch(url3, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(postData),
+        });
+      }
+      function deleteJsonDataUsingFetch(id) {
+        fetchPromise = fetch(url3 + `/${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ id: 4 }),
+        });
+      }
+      //   for (let i = 4; i <= 346; i++) {
+      //     deleteJsonDataUsingFetch(i);
+      //   }
+      //   postJsonDataUsingFetch();
+
+      function printJsonDataUsingAxios(url) {
+        getPromise = axios(url);
+        getPromise.then((result) => {
+          console.log(result.data);
+        });
+      }
+
+      function postJsonDataUsingAxios(data) {
+        axios.post(url3, data).then((result) => {
+          console.log(result.data);
+        });
+      }
+      //   postJsonDataUsingAxios({ name: "Fatema", age: 40 });
+      function deleteJsonDataUsingAxios(id) {
+        axios
+          .delete(url3 + `/${id}`)
+          .then((result) => console.log(result.data));
+      }
+      //   deleteJsonDataUsingAxios(4);
+    </script>
+  </body>
+</html>
