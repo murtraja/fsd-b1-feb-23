@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WPM</title>
+  </head>
+  <body>
+    <div>One of my favorite time-passing game is touch typing</div>
+    <input id="inputText" type="text" />
+    <br />
+    Correct strokes:
+    <div id="correct">0</div>
+    Incorrect strokes:
+    <div id="wrong">0</div>
+    <script>
+      const refQuote = "One of my favorite time-passing game is touch typing";
+      const inputText = document.getElementById("inputText");
+      inputText.addEventListener("input", onStroke);
+      function onStroke() {
+        const userInput = inputText.value;
+        // console.log(userInput);
+        let correctStroke = 0;
+        let wrongStroke = 0;
+        for (
+          let refI = 0, userI = 0;
+          //   let i = 0;
+
+          refI < refQuote.length && userI < userInput.length;
+          //   i < string.length
+
+          refI++, userI++
+        ) //   i++
+        {
+          if (refQuote[refI] === userInput[userI]) {
+            correctStroke++;
+          } else {
+            wrongStroke++;
+          }
+        }
+        // console.log(`Correct: ${correctStroke}`);
+        // console.log(`Wrong: ${wrongStroke}`);
+        document.getElementById("correct").innerHTML = correctStroke;
+        document.getElementById("wrong").innerHTML = wrongStroke;
+      }
+    </script>
+  </body>
+</html>

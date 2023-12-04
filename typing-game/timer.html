@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timer</title>
+  </head>
+  <body>
+    <div id="timerValue">0</div>
+    <button id="startButton">Start timer</button>
+    <button id="stopButton">Stop timer</button>
+    <script>
+      let secondsElapsed = 0;
+      let timerId = 0;
+      const startButton = document.getElementById("startButton");
+      const stopButton = document.getElementById("stopButton");
+      const timerValue = document.getElementById("timerValue");
+      startButton.addEventListener("click", onStartButtonClicked);
+      function onStartButtonClicked() {
+        console.log("clicked on start button");
+        timerId = setInterval(onOneSecondPassed, 1000);
+      }
+      stopButton.addEventListener("click", onStopButtonClicked);
+      function onStopButtonClicked() {
+        console.log("clicked on Stop button. Timer so far: " + secondsElapsed);
+        clearInterval(timerId);
+        xyz = 0;
+        timerValue.innerHTML = xyz;
+      }
+      function onOneSecondPassed() {
+        secondsElapsed++;
+        timerValue.innerHTML = secondsElapsed;
+      }
+      function onOneSecondPassedBAD() {
+        timerValue.innerHTML = parseInt(timerValue.innerHTML) + 1;
+      }
+    </script>
+  </body>
+</html>
