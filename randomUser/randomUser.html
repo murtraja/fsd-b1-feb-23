@@ -1,0 +1,80 @@
+<!-- https://my.newtonschool.co/playground/markup/bngtczao9b6a?lecture_hash=o3foxhhcxpth -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random user</title>
+  </head>
+  <body>
+    <!-- html code goes here -->
+    <img
+      id="userImage"
+      src="https://randomuser.me/api/portraits/women/26.jpg"
+    />
+
+    <h2 id="userName">Natalie Evans</h2>
+
+    <div id="userInfo">This is dynamic content</div>
+    <button id="age" data-attr="age">Age</button>
+    <button id="email" data-attr="email">Email</button>
+    <button id="phone" data-attr="phone">Phone</button>
+    <br />
+    <button id="anotherUser">Get another user</button>
+    <script>
+      // javascript code goes here
+      let userDetails = {};
+      async function getUser() {
+        const fetchResult = await fetch("https://randomuser.me/api/");
+        const data = await fetchResult.json();
+        const userInfo = data["results"][0];
+        const name = userInfo["name"]["first"] + " " + userInfo["name"]["last"];
+        console.log(name);
+        const email = userInfo["email"];
+        const phone = userInfo["phone"];
+        const age = userInfo["dob"]["age"];
+        console.log(email, phone);
+        userDetails = {
+          name,
+          email,
+          phone,
+          age,
+        };
+        document.getElementById("userName").innerHTML = name;
+        document
+          .getElementById("userImage")
+          .setAttribute("src", userInfo["picture"]["large"]);
+        document.getElementById("userInfo").innerHTML = "";
+      }
+      document
+        .getElementById("age")
+        .addEventListener("click", onInfoButtonClicked);
+      document
+        .getElementById("email")
+        .addEventListener("click", onInfoButtonClicked);
+      document
+        .getElementById("phone")
+        .addEventListener("click", onInfoButtonClicked);
+      const userInfo = document.getElementById("userInfo");
+      function onInfoButtonClicked(evt) {
+        const infoType = evt.target.dataset.attr;
+        console.log(infoType);
+        switch (infoType) {
+          case "age":
+            userInfo.innerHTML = userDetails.age;
+            break;
+
+          case "email":
+            userInfo.innerHTML = userDetails.email;
+            break;
+
+          case "phone":
+            userInfo.innerHTML = userDetails.phone;
+            break;
+        }
+      }
+      getUser();
+      document.getElementById("anotherUser").addEventListener("click", getUser);
+    </script>
+  </body>
+</html>
