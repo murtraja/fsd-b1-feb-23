@@ -4,6 +4,13 @@ const quoteDisplayElement = document.getElementById("quoteDisplay");
 const timerElement = document.getElementById("timer");
 const wpmElement = document.getElementById("wpm");
 
+let secondsElapsed = 0;
+let timerId = 0;
+let userInput = "";
+let correctStroke = 0;
+let wrongStroke = 0;
+let refQuote = "";
+
 async function getQuote() {
   // returns a new quote from the API as string
   const apiResult = await fetch(RANDOM_QUOTE_API_URL);
@@ -20,5 +27,69 @@ async function createSpansFromQuote(quote) {
 async function initializeGame() {
   const quote = await getQuote();
   createSpansFromQuote(quote);
+  refQuote = quote;
 }
 initializeGame();
+
+function startTimer() {
+  timerId = setInterval(onOneSecondPassed, 1000);
+}
+
+function stopGame() {
+  // console.log("body clicked");
+  clearInterval(timerId);
+  timerElement.innerHTML = 0;
+  document.body.removeEventListener("keydown", onKeyDown);
+  for (let i = 0; i < refQuote.length; i++) {
+    quoteDisplayElement.children[i].classList = [];
+  }
+}
+
+function onOneSecondPassed() {
+  secondsElapsed++;
+  timerElement.innerHTML = secondsElapsed;
+}
+
+function onContainerClick(evt) {
+  // console.log("clicked on container");
+  startTimer();
+  evt.stopPropagation();
+  document.body.addEventListener("keydown", onKeyDown);
+}
+
+function onKeyDown(evt) {
+  // console.log("key down pressed");
+  const keycode = evt.keyCode;
+  if (keycode == 32 || (keycode >= 48 && keycode <= 223)) {
+    userInput += evt.key;
+  } else if (keycode == 8) {
+    userInput = userInput.substring(0, userInput.length - 1);
+  }
+  console.log(userInput);
+  onStroke();
+}
+
+function onStroke() {
+  correctStroke = 0;
+  wrongStroke = 0;
+
+  for (let i = 0; i < refQuote.length; i++) {
+    if (i >= userInput.length) {
+      quoteDisplayElement.children[i].classList = [];
+    } else if (refQuote[i] === userInput[i]) {
+      correctStroke++;
+      quoteDisplayElement.children[i].classList.add("correct");
+    } else {
+      wrongStroke++;
+      quoteDisplayElement.children[i].classList.add("incorrect");
+    }
+  }
+
+  const minutesElapsed = secondsElapsed / 60;
+  const correctWords = correctStroke / 5;
+  const wpm = Math.round(correctWords / minutesElapsed);
+  wpmElement.innerHTML = wpm;
+}
+
+container.addEventListener("click", onContainerClick);
+document.body.addEventListener("click", stopGame);
