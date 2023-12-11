@@ -1,0 +1,23 @@
+Roll No.,Name,Marks
+1,Murtaza,33
+2,Lokesh,43
+3,Madhav,53
+
+
+[
+ {
+   "Roll No.": 1,
+   "Name": "Murtaza",
+   "Marks": 33
+ },
+ {
+   "Roll No.": 2,
+   "Name": "Lokesh",
+   "Marks": 43
+ },
+ {
+   "Roll No.": 3,
+   "Name": "Madhav",
+   "Marks": 53
+ }
+]

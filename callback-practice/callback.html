@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>call back</title>
+  </head>
+  <body>
+    <button id="btn">Slow button</button>
+    <script>
+      /*
+            0. Button has text "Slow button"
+            1. You click on the button
+            2. After 2 seconds, it prints I was clicked
+            3. After 3 seconds, the button changes the text to "I was clicked"
+            4. After 4 seconds, revert back to normal 0 step
+        */
+      const button = document.getElementById("btn");
+      button.addEventListener("click", onButtonClicked);
+      //   button.addEventListener("click", () =>
+      //     setTimeout(slowButtonCallback, 2000)
+      //   );
+      function onButtonClicked() {
+        setTimeout(slowButtonCallback, 2000);
+      }
+      function slowButtonCallback() {
+        console.log("I was clicked");
+        // setTimeout(changeButtonTextAndMaybeSetTimeout, 3000, "I was clicked");
+        setTimeout(
+          () =>
+            changeButtonTextAndMaybeSetTimeout(
+              "I was clicked",
+              () => changeButtonTextAndMaybeSetTimeout("Slow button"),
+              4000
+            ),
+          3000
+        );
+      }
+      //   function changeButtonText() {
+      //     button.innerHTML = "I was clicked";
+      //     setTimeout(changeButtonTextToNormal, 4000);
+      //   }
+      //   function changeButtonTextToNormal() {
+      //     button.innerHTML = "Slow button";
+      //   }
+      function changeButtonTextAndMaybeSetTimeout(text, callback, delay) {
+        debugger;
+        button.innerHTML = text;
+        if (callback) {
+          setTimeout(callback, delay);
+        }
+      }
+    </script>
+  </body>
+</html>

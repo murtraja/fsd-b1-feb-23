@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Debouncing</title>
+  </head>
+  <body>
+    Debounced: <input id="debouncedInput" type="text" />
+    <br />
+    Plain:
+    <input id="plainInput" type="text" />
+    <script>
+      const debouncedInput = document.getElementById("debouncedInput");
+      const plainInput = document.getElementById("plainInput");
+
+      debouncedInput.addEventListener("input", onInput);
+      const debounceTime = 300;
+      let timerId = 0;
+      function onInput() {
+        clearInterval(timerId);
+        timerId = setTimeout(
+          () => console.log(debouncedInput.value),
+          debounceTime
+        );
+      }
+
+      plainInput.addEventListener("input", onPlainInput);
+      function onPlainInput() {
+        console.log(plainInput.value);
+      }
+    </script>
+  </body>
+</html>

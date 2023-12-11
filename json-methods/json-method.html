@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Json methods</title>
+  </head>
+  <body>
+    <script>
+      // 1. How to convert object to JSON
+      // 2. How to convert JSON back to object
+
+      /*
+        JSON - Javascript object notation
+        it is a form of structured data representation
+      */
+      json_output = [
+        {
+          "Roll No.": 1,
+          Name: "Murtaza",
+          Marks: 33,
+        },
+        {
+          "Roll No.": 2,
+          Name: "Lokesh",
+          Marks: 43,
+        },
+        {
+          "Roll No.": 3,
+          Name: "Madhav",
+          Marks: 53,
+        },
+      ];
+
+      const API =
+        "https://my-json-server.typicode.com/murtraja/json-server/users";
+
+      async function getAllUsers() {
+        // this function prints all the
+        // users from the API
+        const fetchResult = await fetch(API);
+        const jsonResult = await fetchResult.text();
+        console.log(jsonResult);
+        console.log(typeof jsonResult);
+        // convert string to JSON
+        const jsonData = JSON.parse(jsonResult);
+        console.table(jsonData);
+        console.log(jsonData.map((obj) => obj.name));
+      }
+    </script>
+  </body>
+</html>
