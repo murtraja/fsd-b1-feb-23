@@ -1,0 +1,83 @@
+Minute bhai - He counts number of minutes that have passed - You can ask him how many minutes have passed - You can ask him to restart the count
+
+Hour bhai - Same thing, but he takes help from Minute bhai.
+
+10:00 PM
+Please start counting minutes
+count = 0
+
+10:01 PM (10:00:59)
+count = 1
+
+10:02 PM (10:01:59)
+count = 2
+
+10:47 PM
+count = 47
+
+10:59 PM
+count = 59
+
+11:00 PM
+count = 60
+
+11:01 PM
+count = 60 + 01
+
+11:47 PM
+count = 60 + 47
+
+Hour:
+Please start counting hours at 10:00 PM
+
+- He will ask minute to please start counting at 10:00 PM
+  10:00 PM
+  hvalue = 0
+
+10:30 PM
+hvalue = 0
+
+formula
+time given by minute/60
+
+10:47 PM
+minute bhai -> 47
+hour bhai = hvalue = 47/60 = 0
+
+11:00 PM
+minute bhai -> 60
+hour bhai = hvalue = 60/60 = 1
+
+11:47 PM
+minute bhai -> 107
+hour bhai = hvalue = 107/60 = 1
+
+Time bhai:
+
+job is to display time elapsed in hours and minutes format
+
+For example, if we start at 10 PM.
+
+Then he has to give values: 00:00
+
+10:30 PM -> 00:30
+
+10:47 PM -> 00:47
+
+11:47 PM -> 01:47
+minute bhai -> 107
+hour bhai -> 1
+
+    leftover_mins = 107%60 = 47
+    hours = 1 = 107/60 = 1
+    01:47
+
+every 100 millisecond
+
+0th = count = 0
+100th = count = 0.1
+200th = count = 0.2
+...
+1000th = count = 1
+
+count = second bhai

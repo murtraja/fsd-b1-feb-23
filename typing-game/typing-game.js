@@ -4,6 +4,7 @@ const quoteDisplayElement = document.getElementById("quoteDisplay");
 const timerElement = document.getElementById("timer");
 const wpmElement = document.getElementById("wpm");
 
+let timeStarted = 0;
 let secondsElapsed = 0;
 let timerId = 0;
 let userInput = "";
@@ -40,11 +41,13 @@ initializeGame();
 
 function startTimer() {
   timerId = setInterval(onOneSecondPassed, 1000);
+  timeStarted = new Date().getTime();
 }
 
 function stopTimer() {
   clearInterval(timerId);
   timerElement.innerHTML = 0;
+  timeStarted = 0;
 }
 
 function stopGame() {
@@ -101,7 +104,7 @@ function onStroke() {
     }
   }
 
-  const minutesElapsed = secondsElapsed / 60;
+  const minutesElapsed = (new Date().getTime() - timeStarted) / 60000;
   const correctWords = correctStroke / 5;
   const wpm = Math.round(correctWords / minutesElapsed);
   wpmElement.innerHTML = wpm;
