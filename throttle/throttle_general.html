@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Throttle</title>
+  </head>
+  <body>
+    <img
+      id="image"
+      src="https://i0.wp.com/picjumbo.com/wp-content/uploads/beautiful-nature-scenery-free-photo.jpg?w=2210&quality=70"
+    />
+    <script>
+      const image = document.getElementById("image");
+      const shrinkPercentage = 10;
+
+      image.addEventListener("click", throttler(shrinkImage, 300));
+      //   image.addEventListener("click", shrinkImage);
+      function throttler(callback, delay) {
+        let shouldCall = true;
+        return function () {
+          if (shouldCall) {
+            callback();
+            shouldCall = false;
+            setTimeout(() => {
+              shouldCall = true;
+            }, delay);
+          }
+        };
+      }
+      function shrinkImage() {
+        // =========================
+        const height = image.height;
+        const width = image.width;
+        console.log(height, width);
+        const newHeight = Math.round((height * (100 - shrinkPercentage)) / 100);
+        const newWidth = Math.round((width * (100 - shrinkPercentage)) / 100);
+        image.height = newHeight;
+        image.width = newWidth;
+        // =========================
+      }
+    </script>
+  </body>
+</html>
