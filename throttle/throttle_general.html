@@ -14,22 +14,52 @@
       const image = document.getElementById("image");
       const shrinkPercentage = 10;
 
-      image.addEventListener("click", throttler(shrinkImage, 300));
       //   image.addEventListener("click", shrinkImage);
-      function throttler(callback, delay) {
+      const throttler = (callback, delay) => {
         let shouldCall = true;
-        return function () {
+        // console.log(this);
+        return function (...args) {
           if (shouldCall) {
-            callback();
+            callback(...args);
             shouldCall = false;
             setTimeout(() => {
               shouldCall = true;
             }, delay);
+          } else {
+            console.log("ignoring click");
           }
         };
-      }
-      function shrinkImage() {
+      };
+      const imageManipulator = {
+        height: 1473,
+        width: 2210,
+        shrinkMe() {
+          const thisHeight = this.height;
+          const thisWidth = this.width;
+          console.log(this);
+          console.log(thisHeight, thisWidth);
+          const newHeight = Math.round(
+            (thisHeight * (100 - shrinkPercentage)) / 100
+          );
+          const newWidth = Math.round(
+            (thisWidth * (100 - shrinkPercentage)) / 100
+          );
+          image.height = newHeight;
+          image.width = newWidth;
+          this.height = newHeight;
+          this.width = newWidth;
+        },
+      };
+      imageManipulator.shrinkMeThrottled = throttler(
+        imageManipulator.shrinkMe,
+        300
+      );
+      //   image.addEventListener("click", imageManipulator.shrinkMeThrottled);
+      image.addEventListener("click", throttler(shrinkImage, 300));
+
+      function shrinkImage(evt) {
         // =========================
+        const image = evt.target;
         const height = image.height;
         const width = image.width;
         console.log(height, width);
