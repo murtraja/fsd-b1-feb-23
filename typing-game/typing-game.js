@@ -18,6 +18,7 @@ async function getQuote() {
   return jsonResult.content;
 }
 async function createSpansFromQuote(quote) {
+  quoteDisplayElement.innerHTML = "";
   for (let i = 0; i < quote.length; i++) {
     const span = document.createElement("span");
     span.innerHTML = quote[i];
@@ -28,6 +29,12 @@ async function initializeGame() {
   const quote = await getQuote();
   createSpansFromQuote(quote);
   refQuote = quote;
+  secondsElapsed = 0;
+  userInput = "";
+  correctStroke = 0;
+  wrongStroke = 0;
+  stopTimer();
+  // wpmElement.innerHTML = 0;
 }
 initializeGame();
 
@@ -35,14 +42,18 @@ function startTimer() {
   timerId = setInterval(onOneSecondPassed, 1000);
 }
 
-function stopGame() {
-  // console.log("body clicked");
+function stopTimer() {
   clearInterval(timerId);
   timerElement.innerHTML = 0;
+}
+
+function stopGame() {
+  stopTimer();
   document.body.removeEventListener("keydown", onKeyDown);
   for (let i = 0; i < refQuote.length; i++) {
     quoteDisplayElement.children[i].classList = [];
   }
+  userInput = "";
 }
 
 function onOneSecondPassed() {
@@ -67,6 +78,11 @@ function onKeyDown(evt) {
   }
   console.log(userInput);
   onStroke();
+  if (userInput.length === refQuote.length) {
+    console.log("user has typed quote completely");
+    initializeGame();
+    // startTimer();
+  }
 }
 
 function onStroke() {
