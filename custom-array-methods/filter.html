@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Filter</title>
+  </head>
+  <body>
+    <script>
+      const passingMarks = 40;
+      const myArray = [
+        {
+          name: "anurag",
+          marks: 80,
+        },
+        {
+          name: "tirtharaj",
+          marks: 50,
+        },
+        {
+          name: "murtaza",
+          marks: 20,
+        },
+      ];
+      const whetherStudentPassed = (student) => {
+        //   const isPassed = student.marks > passingMarks;
+        //   return isPassed;
+        // console.log(student);
+        // console.log(student.marks > passingMarks);
+        if (student.marks > passingMarks) {
+          return true;
+        } else {
+          return false;
+        }
+      };
+      //   console.log(myArray);
+      //   console.log(
+      //     myArray.filter(whetherStudentPassed)
+      //     //   .map((student) => student.name)
+      //   );
+      Array.prototype.myFilter = function (predicate) {
+        const array = this;
+        const newArray = [];
+        for (let i = 0; i < array.length; i++) {
+          if (predicate(array[i])) {
+            console.log(`array[${i}]=`);
+            console.log(array[i]);
+            newArray.push(array[i]);
+          } else {
+            console.log("FALSE", array[i]);
+          }
+        }
+        return newArray;
+      };
+      const result = myArray.myFilter(whetherStudentPassed);
+      console.log(result);
+    </script>
+  </body>
+</html>
