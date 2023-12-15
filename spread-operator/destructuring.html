@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destructuring</title>
+  </head>
+  <body>
+    <button id="clickMe">Click me</button>
+    <script>
+      // destructuring arrays
+      //   const keyValues = ["name", "Murtaza"];
+      //   const [key, value] = keyValues;
+      //   console.log(key);
+      //   console.log(value);
+
+      //   const pcmMarks = [30, 40, 56];
+      //   const [phy] = pcmMarks;
+      //   console.log(phy); // 30
+
+      //   const pcmMarks = [30, 40, 56];
+      //   const [phy, chem] = pcmMarks;
+      //   console.log(phy); // 30
+      //   console.log(chem); // 40
+
+      //   const pcmMarks = [30, 40, 56];
+      //   const [phy, ...cmMarks] = pcmMarks;
+      //   console.log(phy); // 30
+      //   console.log(cmMarks); // [40, 56]
+
+      // destructuring objects
+      //   const myObj = { name: "murtaza", age: 10, address: "mumbai" };
+      //   const { name } = myObj;
+      //   const { age } = myObj;
+      //   console.log(name);
+      //   console.log(age);
+
+      //   const myObj = { name: "murtaza", age: 10, address: "mumbai" };
+      //   const { name, age, notPresent } = myObj;
+      //   console.log(name);
+      //   console.log(age);
+      //   console.log(notPresent);
+
+      const myObj = {
+        name: "murtaza",
+        age: 10,
+        address: {
+          city: "mumbai",
+          pincode: "40001",
+        },
+      };
+      const {
+        address: { pincode, city },
+      } = myObj;
+      console.log(pincode);
+      console.log(city);
+      document
+        .getElementById("clickMe")
+        .addEventListener("click", onButtonClicked);
+      function onButtonClicked({ target: { innerHTML } }) {
+        console.log(innerHTML);
+      }
+    </script>
+  </body>
+</html>
