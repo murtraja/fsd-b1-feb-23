@@ -8,6 +8,16 @@
   <body>
     <button id="btn">Slow button</button>
     <script>
+      // function factorial(n) {
+      //   if(n===1) {
+      //     return 1;
+      //   }
+      //   return n * factorial(n-1)
+      // }
+      // 5! = 5 x 4 x 3 x 2 x 1
+      // 4! = 4 x 3 x 2 x 1
+      // 5! = 5 x 4!
+      // 5! = 5 x (5-1)!
       /*
             0. Button has text "Slow button"
             1. You click on the button
@@ -26,15 +36,16 @@
         // operation : the operation you want to perform
         // delay: delay after which the operation is to be performed
         if (operations.length === 0) {
+          debugger;
           return;
         }
         const [firstOperation, ...restOperations] = operations;
         const [firstDelay, ...restDelays] = delays;
-        console.log("firstOperation", firstOperation);
-        console.log("restOperations", restOperations);
+        // console.log("firstOperation", firstOperation);
+        // console.log("restOperations", restOperations);
 
-        console.log("firstDelay", firstDelay);
-        console.log("restDelays", restDelays);
+        // console.log("firstDelay", firstDelay);
+        // console.log("restDelays", restDelays);
         setTimeout(() => {
           firstOperation();
           operateAfterDelaySeries(restOperations, restDelays);

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spread</title>
+  </head>
+  <body>
+    <script>
+      /* Spread operator (...) */
+
+      // creating copies
+      const myArray = [1, 2, 3];
+      function createArrayCopyTraditional(array) {
+        // write some code here
+        const copy = [];
+        array.forEach((element) => {
+          copy.push(element);
+        });
+        return copy;
+      }
+      function createArrayCopy(array) {
+        return [...array];
+        // [ 1, 2, 3]
+      }
+      const myCopy = createArrayCopy(myArray);
+      myArray[1] = 55;
+      console.log("myArray", myArray);
+      console.log("myCopy", myCopy);
+      function concatenateArrays(array1, array2) {
+        // create a new array = array1 + array2
+        return [...array1, ...array2];
+      }
+      const firstArray = [1, 2, 3];
+      const secondArray = ["a", "b", "c"];
+      const concatenatedArray = concatenateArrays(firstArray, secondArray);
+      console.log("concat", concatenatedArray);
+
+      // spread operator for objects
+      const myObj = { name: "murtaza", age: 10 };
+      const copyObj = { ...myObj };
+      myObj.age = 20;
+      console.log(myObj);
+      console.log(copyObj);
+
+      // the last spread, the last key is preserved
+      const copyObj2 = { ...myObj, name: "anurag", address: "mumbai" };
+      console.log("copyObj2", copyObj2);
+
+      // use variable number of arguments in functions
+      function summationNormal(...args) {
+        console.log(args);
+        let sum = 0;
+        args.forEach((e) => {
+          sum += e;
+        });
+        return sum;
+      }
+      function summation(...args) {
+        if (args.length === 0) {
+          return 0;
+        }
+        const [first, ...rest] = args;
+        return first + summation(...rest);
+      }
+      //   const result1 = summation(1, 2, 3, 4); // 10
+      //   console.log(result1);
+      const result2 = summation(30, 40, 60); // 130
+      console.log(result2);
+      const result3 = summation(); // 0
+      console.log(result3);
+      const result4 = summation(42); // 42
+      console.log(result4);
+    </script>
+  </body>
+</html>
