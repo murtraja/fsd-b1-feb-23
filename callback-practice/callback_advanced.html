@@ -17,20 +17,37 @@
         */
       const operations = [
         () => console.log("i was clicked"),
-        () => changeButton("i was clicked"),
-        () => changeButton("slow button"),
+        () => changeButtonText("i was clicked"),
+        () => changeButtonText("slow button"),
       ];
       const delays = [2000, 3000, 4000];
 
       function operateAfterDelaySeries(operations, delays) {
         // operation : the operation you want to perform
         // delay: delay after which the operation is to be performed
+        if (operations.length === 0) {
+          return;
+        }
+        const [firstOperation, ...restOperations] = operations;
+        const [firstDelay, ...restDelays] = delays;
+        console.log("firstOperation", firstOperation);
+        console.log("restOperations", restOperations);
+
+        console.log("firstDelay", firstDelay);
+        console.log("restDelays", restDelays);
+        setTimeout(() => {
+          firstOperation();
+          operateAfterDelaySeries(restOperations, restDelays);
+        }, firstDelay);
       }
       const button = document.getElementById("btn");
+      function changeButtonText(text) {
+        button.innerHTML = text;
+      }
       button.addEventListener("click", () =>
         operateAfterDelaySeries(operations, delays)
       );
-      button.addEventListener("click", onButtonClicked);
+      // button.addEventListener("click", onButtonClicked);
       //   button.addEventListener("click", () =>
       //     setTimeout(slowButtonCallback, 2000)
       //   );
@@ -58,7 +75,7 @@
       //     button.innerHTML = "Slow button";
       //   }
       function changeButtonTextAndMaybeSetTimeout(text, callback, delay) {
-        debugger;
+        // debugger;
         button.innerHTML = text;
         if (callback) {
           setTimeout(callback, delay);
