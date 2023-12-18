@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reduce</title>
+  </head>
+  <body>
+    <script>
+      const myArray = [
+        {
+          name: "anurag",
+          marks: 80,
+        },
+        {
+          name: "tirtharaj",
+          marks: 50,
+        },
+        {
+          name: "murtaza",
+          marks: 20,
+        },
+      ];
+      Array.prototype.myReduce = function (cb, initialValue) {
+        // Complete the implementation of myReduce
+        const array = this;
+        let reducedValue = initialValue;
+        for (let i = 0; i < array.length; i++) {
+          const cur = array[i];
+          reducedValue = cb(reducedValue, cur, i, array);
+        }
+        return reducedValue;
+      };
+      console.log("ORIGINAL REDUCE---------------");
+      const sum = myArray.reduce((acc, cur) => {
+        console.log("acc", acc, "cur", cur);
+        const newValue = acc + cur.marks;
+
+        return newValue;
+      }, 0);
+      console.log("sum", sum);
+      console.log(`Average: ${sum / myArray.length}`);
+
+      console.log("MY REDUCE---------------");
+      const sum2 = myArray.myReduce((acc, cur) => {
+        console.log("acc", acc, "cur", cur);
+        const newValue = acc + cur.marks;
+
+        return newValue;
+      }, 0);
+      console.log("sum", sum2);
+      console.log(`Average: ${sum2 / myArray.length}`);
+
+      /* handling initialValue undefined condition */
+      Array.prototype.myReduceAdvanced = function (cb, initialValue) {
+        // Complete the implementation of myReduce
+        const array = this;
+        const startIndex = 0;
+        let reducedValue = initialValue;
+        if (reducedValue === undefined) {
+          reducedValue = array[0];
+          startIndex = 1;
+        }
+        for (let i = startIndex; i < array.length; i++) {
+          const cur = array[i];
+          reducedValue = cb(reducedValue, cur, i, array);
+        }
+        return reducedValue;
+      };
+    </script>
+  </body>
+</html>

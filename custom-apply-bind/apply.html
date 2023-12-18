@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply</title>
+  </head>
+  <body>
+    <script>
+      let character = {
+        name: "Darth Vader",
+      };
+
+      function greet(greeting) {
+        console.log(`${greeting}, ${this.name}!`);
+      }
+
+      Function.prototype.myApply = function (context = {}, args = []) {
+        // Write your code here
+        const func = this;
+        context.func = func;
+        const output = context.func(...args); // greet("May the Force be with you")
+        delete context["func"];
+        return output;
+      };
+      console.log("MyApply---------------");
+      greet.myApply(character, ["May the Force be with you"]);
+      console.log("apply---------------");
+      greet.apply(character, ["May the Force be with you"]);
+      //   console.log("Simpler version---------------");
+      //   greet("May the Force be with you");
+      //   console.log("hi");
+    </script>
+  </body>
+</html>

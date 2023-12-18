@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Map</title>
+  </head>
+  <body>
+    <script>
+      const myArray = [
+        {
+          name: "anurag",
+          marks: 80,
+        },
+        {
+          name: "tirtharaj",
+          marks: 50,
+        },
+        {
+          name: "murtaza",
+          marks: 20,
+        },
+      ];
+      Array.prototype.myMap = function (cb) {
+        // Complete the implementation of myMap
+        const array = this;
+        const newArray = [];
+        for (let i = 0; i < array.length; i++) {
+          console.log(`value to push: ${cb(array[i])}`);
+          newArray.push(cb(array[i]));
+        }
+        return newArray;
+      };
+    </script>
+  </body>
+</html>
