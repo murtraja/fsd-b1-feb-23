@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Revision</title>
+  </head>
+  <body>
+    <script>
+      /* ===========TYPE COERCION=========== */
+
+      // Q1
+      //   let x = 1 > 2 > 3;
+      //   let x = 1 < 2 < 3;
+      // let x = false > 3;
+      // let x = 0 > 3;
+      //   console.log(x);
+
+      // Q2
+      //   let x = false;
+      //   let y = "0";
+      //   let z = 0;
+
+      //   console.log(x == y);
+      //   console.log(x == z);
+
+      // Q3
+      //   let x = "5";
+      //   let y = 2;
+
+      //   console.log(x + y);
+      //   console.log(x - y);
+
+      // Q4
+      //   let x = [];
+      //   let y = [];
+      //   let z = x + y;
+
+      //   console.log(typeof z);
+
+      // Q5
+      //   let x = false;
+      //   let y = true;
+      //   let sum = x + y;
+      //   let diff = x - y;
+
+      //   console.log(sum);
+      //   console.log(diff);
+
+      // Q6
+      //   let x = false;
+      //   let y = !x;
+
+      //   console.log(y);
+
+      // Q7
+      //   let x = "false";
+      //   let y = !x;
+
+      //   console.log(y);
+
+      // Q8
+      //   let x = "false" == false;
+      //   let y = "true" == true;
+
+      //   console.log(x);
+      //   console.log(y);
+
+      // Q9
+      //   let x = "a";
+      //   let y = "3";
+
+      //   console.log(x);
+      //   console.log(y);
+
+      /* ===========VAR LET CONST=========== */
+      // Q1
+      //   var num = 8;
+      //   var num = 10;
+
+      //   console.log(num);
+
+      // Q2
+      //  let num = 8;
+      //   let num = 10;
+
+      //   console.log(num);
+
+      // Q3
+      // const num = 8;
+      //  const num = 10;
+
+      //   console.log(num);
+
+      // Q4
+      //var myName = "murtaza";
+      //console.log(window.myName);
+
+      // Q5
+      //let myName = "murtaza";
+      //console.log(window.myName);
+
+      // Q6
+      //var myName = "murtaza";
+      //   console.log(myName);
+
+      //let myName = "raja";
+      //   console.log(myName);
+
+      // Q7
+      //let myName = "raja";
+      //console.log(myName);
+
+      //var myName = "murtaza";
+      //console.log(myName);
+
+      // Q8
+      //var myName = "murtaza";
+      //{
+      //  let myName = "raja";
+      //  console.log(myName);
+      //}
+      //console.log(myName);
+
+      // Q9
+      //   let myName = "raja";
+      //   console.log(myName);
+      //   {
+      //     var myName = "murtaza";
+      //   }
+      //   console.log(myName);
+
+      // Q9.2
+      //   let myName = "raja";
+      //   console.log(myName);
+      //   (function chalegaKya() {
+      //     var myName = "murtaza";
+      //     console.log("insidefun", myName);
+      //   })();
+      //   console.log(myName);
+
+      //Q9.3
+      //   function scope() {
+      //     var myName = "Murtaza";
+      //     {
+      //       let myName = "Murtaza";
+      //     }
+      //   }
+      //   scope();
+
+      //Q9.4
+      //   function scope() {
+      //     {
+      //       let myName = "raja";
+      //       console.log(myName);
+      //     }
+      //     {
+      //       var myName = "Murtaza";
+      //     }
+      //     console.log(myName);
+      //   }
+      //   scope();
+
+      //Q9.5
+      //   function scope() {
+      //     console.log(myName);
+      //     {
+      //       let myName = "raja";
+      //     }
+      //     {
+      //       var myName = "Murtaza";
+      //     }
+      //     console.log(myName);
+      //   }
+      //   scope();
+
+      // Q10
+      //   let myName = "raja";
+      //   {
+      //     let myName = "murtaza";
+      //     console.log(myName);
+      //   }
+      //   console.log(myName);
+
+      // Q11
+      //   for (var i = 0; i < 3; i++) {
+      //     setTimeout(function () {
+      //       console.log(i);
+      //     }, 1000 * i);
+      //   }
+      //   console.log("after for loop", i);
+
+      // Q12
+      //   for (let i = 0; i < 3; i++) {
+      //     setTimeout(() => {
+      //       console.log(i);
+      //     }, 1000 * i);
+      //   }
+
+      // Q13
+      //   for (var i = 0; i < 3; i++) {
+      //     (function (i) {
+      //       setTimeout(function () {
+      //         console.log(i);
+      //       }, 1000 * i);
+      //     })(i);
+      //   }
+      //   console.log("after for loop", i);
+
+      // Q 13
+      //   for (var i = 0; i < 3; i++) {
+      //     function newScope(n) {
+      //       return function () {
+      //         console.log(n);
+      //       };
+      //     }
+      //     setTimeout(newScope(i), 1000 * i);
+      //   }
+      //   console.log("after for loop", i);
+
+      /* ===========OBJECTS=========== */
+
+      // Q1
+      //   let x = { a: 1 };
+      //   let y = Object.assign({}, x);
+
+      //   console.log(x === y);
+
+      // Q2
+      // let x = { a: 1 };
+      // let y = x;
+
+      // console.log(x == y);
+
+      // Q3
+      //   let x = { a: 1 };
+      //   let y = { a: 1 };
+
+      //   console.log(x === y);
+
+      // Q3.2
+      //   let x = ["a", 1];
+      //   let y = ["a", 1];
+
+      //   console.log(x === y);
+
+      // Q4
+      // implement shallow object comparison function
+      //   let x = { a: 3, b: { c: [4] } };
+      //   let y = { b: { c: [4] }, a: 3 };
+
+      //   function isEqual(x, y) {
+      //     return JSON.stringify(x) === JSON.stringify(y);
+      //   }
+
+      //   console.log(isEqual(x, y)); //true
+
+      // Q5
+      //   const a = { b: { c: 2 } };
+      //   const b = { ...a };
+      //   a.b.c = 3;
+      //   a.b = "b value changed";
+
+      //   console.log(b.b.c);
+
+      //   const arr1 = [1, 2, 3, [4, 5]];
+      //   const arr2 = [...arr1];
+      //   arr1[3][0] = 100;
+      //   arr1[0] = 444;
+      //   arr2[1] = 999;
+      //   arr1[3] = 10000;
+      //   console.log("arr2", arr2);
+      //   console.log("arr1", arr1);
+
+      // Q6
+
+      let x = { a: 1, b: 2 };
+      let y = { b: 3 };
+      let z = { ...x, ...y };
+
+      console.log(z);
+
+      /* ===========ARRAYS=========== */
+      // Q1
+      //   let x = [null, 0, "0", false, "a"];
+      //   let y = x.filter((value) => value);
+
+      //   console.log(y);
+
+      // Q2
+      //   let x = [1, 2, 3];
+      //   let y = x.map((x, i) => x + i);
+
+      //   console.log(y);
+
+      // Q3
+      //   let x = [1, 2, 3];
+      //   let y = x.map((num) => {
+      //     x.push(num + 3);
+      //     return num + 1;
+      //   });
+
+      //   console.log(y);
+
+      // Q4
+      //   const arr = [1, 2, 3];
+      //   arr.forEach((num) => num * 2);
+
+      //   console.log(arr);
+
+      // Q5
+      //   let x = [1, 2, 3, 5];
+
+      //   x.forEach((e) => {
+      //     if (e > 2 && e < 5) return;
+      //     console.log(e);
+      //   });
+
+      // Q6
+      //   let x = [1, 2, 3, 4];
+      //   let [a, ...b] = x.reverse();
+
+      //   console.log(b);
+
+      // Q7
+      // Reverse each word in the string
+      // esreveR hcae drow ni eht gnirts
+
+      // Q8
+      //   const inventory = [
+      //     { name: "asparagus", type: "vegetables", quantity: 5 },
+      //     { name: "bananas", type: "fruit", quantity: 0 },
+      //     { name: "goat", type: "meat", quantity: 23 },
+      //     { name: "cherries", type: "fruit", quantity: 5 },
+      //     { name: "fish", type: "meat", quantity: 22 },
+      //   ];
+
+      //   result = {
+      //     vegetables: [{ name: "asparagus", type: "vegetables", quantity: 5 }],
+      //     fruit: [
+      //       { name: "bananas", type: "fruit", quantity: 0 },
+      //       { name: "cherries", type: "fruit", quantity: 5 },
+      //     ],
+      //     meat: [
+      //       { name: "goat", type: "meat", quantity: 23 },
+      //       { name: "fish", type: "meat", quantity: 22 },
+      //     ],
+      //   };
+
+      /* ===========FUNCTIONS=========== */
+      // Q1
+      //   let x = (() => {
+      //     return 9;
+      //   })();
+
+      //   console.log(x);
+
+      // Q2
+      // implement mul
+      // mul(2)(3)(5) // 30
+
+      // Q3
+      // implement mul
+      // mul(n1,n2,...,nk) // n1*n2*...*nk
+
+      // Q4
+      // implement mul
+      // mul(n1)(n2),...,(nk)() // n1*n2*...*nk
+
+      //   function mul(n) {
+      //     return function (k) {
+      //       if (k === undefined) {
+      //         return n;
+      //       }
+      //       return mul(n * k);
+      //     };
+      //   }
+      //   console.log(mul(3)(4)(5)()); // 60
+      //   console.log(mul(3)()); // 3
+
+      /* ===========THIS=========== */
+      // Q1
+      //   let x = {
+      //     y: "z",
+      //     print: () => {
+      //       return this.y === "z";
+      //     },
+      //   };
+
+      //   console.log(x.print());
+    </script>
+  </body>
+</html>
