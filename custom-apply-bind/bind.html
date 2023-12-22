@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apply</title>
+  </head>
+  <body>
+    <script>
+      let dog = {
+        name: "Buddy",
+        breed: "Golden Retriever",
+        age: 3,
+        favoriteActivity: "fetch",
+      };
+
+      function introduceDog(greeting, place) {
+        console.log(`Meet ${this.name}! ${greeting}!`);
+        console.log(`Breed: ${this.breed}`);
+        console.log(`Age: ${this.age}`);
+        console.log(`Favorite Activity: ${this.favoriteActivity} at ${place}`);
+      }
+
+      Function.prototype.myBind = function (obj = {}, ...argsBefore) {
+        // Write your code here
+        const func = this;
+
+        return function (...argsAfter) {
+          obj.func = func;
+          obj.func(...argsBefore, ...argsAfter);
+          delete obj.func;
+        };
+      };
+      const greeting = "Woof Woof";
+      const place = "garden";
+      const introduceBuddyWithGreeting = introduceDog.myBind(dog, greeting);
+      introduceBuddyWithGreeting(place);
+      introduceBuddyWithGreeting("Park");
+      console.log("--------------");
+      const introduceBuddy = introduceDog.myBind(dog);
+      introduceBuddy("Grrrrr", place);
+      introduceBuddy("Hmmm", "Park");
+
+      console.log("--------------");
+      const introduceBuddyWithGreetingWithPlace = introduceDog.myBind(
+        dog,
+        greeting,
+        place
+      );
+      introduceBuddyWithGreetingWithPlace();
+      console.log("--------------");
+
+      const someVar = 4;
+      console.log(someVar);
+      //   someVar = someVar + 1;
+      //   someVar += 1;
+      someVar++;
+      console.log(someVar);
+    </script>
+  </body>
+</html>

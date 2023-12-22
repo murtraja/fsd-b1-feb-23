@@ -274,78 +274,81 @@
 
       // Q6
 
-      let x = { a: 1, b: 2 };
-      let y = { b: 3 };
-      let z = { ...x, ...y };
+      // let x = { a: 1, b: 2 };
+      // let y = { b: 3 };
+      // let z = { ...x, ...y };
 
-      console.log(z);
+      // console.log(z);
 
       /* ===========ARRAYS=========== */
       // Q1
-      //   let x = [null, 0, "0", false, "a"];
-      //   let y = x.filter((value) => value);
+      // let x = [null, 0, "0", false, "a"];
+      // let y = x.filter((value) => value);
 
-      //   console.log(y);
+      // console.log(y);
 
       // Q2
-      //   let x = [1, 2, 3];
-      //   let y = x.map((x, i) => x + i);
+      // let x = [1, 2, 3];
+      // let y = x.map((x, i) => x + i);
 
-      //   console.log(y);
+      // console.log(y);
 
       // Q3
-      //   let x = [1, 2, 3];
-      //   let y = x.map((num) => {
-      //     x.push(num + 3);
-      //     return num + 1;
-      //   });
-
-      //   console.log(y);
+      // let x = [1, 2, 3];
+      // let y = x.map((num) => {
+      //   x.push(num + 3);
+      //   return num + 1;
+      // });
+      // console.log(x);
+      // console.log(y);
 
       // Q4
-      //   const arr = [1, 2, 3];
-      //   arr.forEach((num) => num * 2);
+      // const arr = [1, 2, 3];
+      // arr.forEach((num) => num * 2);
 
-      //   console.log(arr);
+      // console.log(arr);
 
       // Q5
-      //   let x = [1, 2, 3, 5];
+      // let x = [1, 2, 3, 5];
 
-      //   x.forEach((e) => {
-      //     if (e > 2 && e < 5) return;
-      //     console.log(e);
-      //   });
+      // x.forEach((e) => {
+      //   if (e > 2 && e < 5) return;
+      //   console.log(e);
+      // });
 
       // Q6
-      //   let x = [1, 2, 3, 4];
-      //   let [a, ...b] = x.reverse();
+      // let x = [1, 2, 3, 4];
+      // let [a, ...b] = x.reverse();
 
-      //   console.log(b);
+      // console.log(b);
 
       // Q7
       // Reverse each word in the string
       // esreveR hcae drow ni eht gnirts
+      // use split and join and reverse
+      s = "Reverse each word in the string";
+      s.split("").reverse().join("").split(" ").reverse().join(" ");
 
       // Q8
-      //   const inventory = [
-      //     { name: "asparagus", type: "vegetables", quantity: 5 },
-      //     { name: "bananas", type: "fruit", quantity: 0 },
-      //     { name: "goat", type: "meat", quantity: 23 },
-      //     { name: "cherries", type: "fruit", quantity: 5 },
-      //     { name: "fish", type: "meat", quantity: 22 },
-      //   ];
+      const inventory = [
+        { name: "asparagus", type: "vegetables", quantity: 5 },
+        { name: "bananas", type: "fruit", quantity: 0 },
+        { name: "goat", type: "meat", quantity: 23 },
+        { name: "cherries", type: "fruit", quantity: 5 },
+        { name: "fish", type: "meat", quantity: 22 },
+      ];
 
-      //   result = {
-      //     vegetables: [{ name: "asparagus", type: "vegetables", quantity: 5 }],
-      //     fruit: [
-      //       { name: "bananas", type: "fruit", quantity: 0 },
-      //       { name: "cherries", type: "fruit", quantity: 5 },
-      //     ],
-      //     meat: [
-      //       { name: "goat", type: "meat", quantity: 23 },
-      //       { name: "fish", type: "meat", quantity: 22 },
-      //     ],
-      //   };
+      result = {
+        vegetables: [{ name: "asparagus", type: "vegetables", quantity: 5 }],
+        fruit: [
+          { name: "bananas", type: "fruit", quantity: 0 },
+          { name: "cherries", type: "fruit", quantity: 5 },
+        ],
+        meat: [
+          { name: "goat", type: "meat", quantity: 23 },
+          { name: "fish", type: "meat", quantity: 22 },
+        ],
+      };
 
       /* ===========FUNCTIONS=========== */
       // Q1
