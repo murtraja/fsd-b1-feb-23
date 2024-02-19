@@ -1,0 +1,115 @@
+const f1 = ()=>console.log('1')
+undefined
+f1()
+VM2152:1 1
+undefined
+const f2 = ()=>console.log('1')
+undefined
+f2()
+VM2242:1 1
+undefined
+f1==f2
+false
+f1 === f2
+false
+const o1 = {}
+undefined
+const o2 = {}
+undefined
+o1 == o2
+false
+o1 === o2
+false
+const v1 = 4
+undefined
+const v2 = '4'
+undefined
+v1 == v2
+true
+v1 === v2
+false
+const v3 = 4
+undefined
+v1 === v3
+true
+f1
+()=>console.log('1')
+f2
+()=>console.log('1')
+const rf1 = f1
+undefined
+const rf2 = f2
+undefined
+f1
+()=>console.log('1')
+rf1
+()=>console.log('1')
+f1 == rf1
+true
+f1 === rf1
+true
+f2 == rf1
+false
+f2 == rf2
+true
+f2 === rf2
+true
+const ro1 = o1
+undefined
+const ro2 = o2
+undefined
+o1 === ro1
+true
+o2 === ro2
+true
+o1
+{}
+o2
+{}
+ro1
+{}
+o1.name = 'murtaza'
+'murtaza'
+ro1
+{name: 'murtaza'}
+o2
+{}
+ro2
+{}
+function outer() {
+    const inner = () => console.log('1')
+}
+undefined
+outer()
+undefined
+outer()
+undefined
+function outer() {
+    const inner = () => console.log('1')
+    window.refInner = inner
+}
+undefined
+window.refInner
+undefined
+outer()
+undefined
+window.refInner
+() => console.log('1')
+const refInner_1
+VM3531:1 Uncaught SyntaxError: Missing initializer in const declaration
+refInner_1 = window.refInner
+() => console.log('1')
+outer()
+undefined
+window.refInner
+() => console.log('1')
+refInner_2 = window.refInner
+() => console.log('1')
+refInner_1
+() => console.log('1')
+refInner_2
+() => console.log('1')
+refInner_1 === refInner_2
+false
+refInner_1 == refInner_2
+false
